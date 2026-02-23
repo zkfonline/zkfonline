@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,542 +8,1046 @@
     <meta name="author" content="ZKFonline">
     <meta name="description" content="Professionelle Internetseiten mit Aktualisierungsservice für KfZ- und Nutzfahrzeugservice & Karosseriebau zum Festpreis">
     <meta name="keywords" content="ZKFonline, Internetseiten, KfZ-Service, Nutzfahrzeugservice, Karosseriebau, Webdesign, Aktualisierungsservice">
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" />
-
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link href="src/output.css" rel="stylesheet">
-
-	<style>
-		.michroma {
-			font-family: Michroma;
-			letter-spacing: 0.05em; /* Adding more letter spacing for luxury feel */
-		}
-	</style>
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
+        /* ============================================================
+           FONTS & BASE
+        ============================================================ */
+        .michroma { font-family: 'Michroma', sans-serif; letter-spacing: 0.08em; }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
+
+        /* ============================================================
+           DARK THEME (default)
+        ============================================================ */
+        :root,
+        [data-theme="dark"] {
+            --bg-page:          #080e27;
+            --bg-section-alt:   #050c1e;
+            --bg-section-light: #0a1035;
+            --bg-surface:       rgba(255,255,255,0.06);
+            --bg-surface-mid:   rgba(15,28,80,0.58);
+            --bg-surface-card:  #ffffff;
+
+            --text-primary:   #f1f5f9;
+            --text-secondary: rgba(148,163,184,0.88);
+            --text-tertiary:  rgba(100,116,139,0.80);
+            --text-on-card:   #0f172a;
+
+            --border-glass:   rgba(255,255,255,0.12);
+            --border-dim:     rgba(255,255,255,0.07);
+            --border-blue:    rgba(96,165,250,0.18);
+
+            --shadow-glass:   0 8px 40px rgba(0,0,0,0.45);
+            --shadow-card:    0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover:   0 14px 44px rgba(37,99,235,0.13);
+
+            --nav-bg:         rgba(8,14,39,0.72);
+            --nav-bg-solid:   rgba(8,14,39,0.95);
+            --nav-border:     rgba(255,255,255,0.07);
+            --nav-link:       rgba(226,232,240,0.70);
+            --nav-link-hover: #ffffff;
+
+            --hero-headline:  #ffffff;
+            --hero-sub:       rgba(226,232,240,0.88);
+
+            --step-bg:        #ffffff;
+            --step-border:    rgba(226,232,240,0.75);
+            --step-text:      #0f172a;
+            --step-body:      #475569;
+            --steps-section:  linear-gradient(180deg, #f1f5f9 0%, #ffffff 50%, #f8fafc 100%);
+
+            --footer-bg:      #020710;
+            --footer-border:  rgba(255,255,255,0.055);
+            --footer-text:    rgba(148,163,184,0.68);
+            --footer-copy:    rgba(100,116,139,0.78);
+
+            --price-info-bg:  rgba(37,99,235,0.11);
+            --price-info-border: rgba(96,165,250,0.18);
+            --price-info-text: rgba(147,197,253,0.88);
+            --price-row-border: rgba(255,255,255,0.06);
+
+            --update-bg: linear-gradient(180deg, #050c1e 0%, #0f1f5c 50%, #050c1e 100%);
+            --update-text: rgba(226,232,240,0.88);
+            --update-sub:  rgba(148,163,184,0.84);
+            --service-icon-color: #60a5fa;
+            --quote-panel-bg: rgba(255,255,255,0.05);
+            --quote-panel-border: rgba(255,255,255,0.09);
+            --quote-text: rgba(226,232,240,0.90);
+            --quote-footer-text: #60a5fa;
+            --quote-mark-color: rgba(96,165,250,0.15);
+        }
+
+        /* ============================================================
+           LIGHT THEME
+        ============================================================ */
+        [data-theme="light"] {
+            --bg-page:          #ffffff;
+            --bg-section-alt:   #f8fafc;
+            --bg-section-light: #f1f5f9;
+            --bg-surface:       rgba(255,255,255,0.92);
+            --bg-surface-mid:   rgba(255,255,255,0.96);
+            --bg-surface-card:  #ffffff;
+
+            --text-primary:   #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary:  #94a3b8;
+            --text-on-card:   #0f172a;
+
+            --border-glass:   rgba(15,23,42,0.09);
+            --border-dim:     rgba(15,23,42,0.06);
+            --border-blue:    rgba(37,99,235,0.18);
+
+            --shadow-glass:   0 4px 24px rgba(15,23,42,0.09);
+            --shadow-card:    0 2px 16px rgba(15,23,42,0.07);
+            --shadow-hover:   0 12px 40px rgba(37,99,235,0.15);
+
+            --nav-bg:         rgba(255,255,255,0.80);
+            --nav-bg-solid:   rgba(255,255,255,0.98);
+            --nav-border:     rgba(15,23,42,0.09);
+            --nav-link:       #475569;
+            --nav-link-hover: #0f172a;
+
+            --hero-headline:  #0f172a;
+            --hero-sub:       #475569;
+
+            --step-bg:        #ffffff;
+            --step-border:    rgba(226,232,240,0.90);
+            --step-text:      #0f172a;
+            --step-body:      #475569;
+            --steps-section:  linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+
+            --footer-bg:      #0f172a;
+            --footer-border:  rgba(255,255,255,0.08);
+            --footer-text:    rgba(148,163,184,0.80);
+            --footer-copy:    rgba(100,116,139,0.80);
+
+            --price-info-bg:  rgba(37,99,235,0.06);
+            --price-info-border: rgba(37,99,235,0.15);
+            --price-info-text: #1e40af;
+            --price-row-border: rgba(15,23,42,0.07);
+
+            --update-bg: #ffffff;
+            --update-text: #0f172a;
+            --update-sub:  #374151;
+            --service-icon-color: #2563eb;
+            --quote-panel-bg: rgba(255,255,255,0.95);
+            --quote-panel-border: rgba(15,23,42,0.09);
+            --quote-text: #1e293b;
+            --quote-footer-text: #2563eb;
+            --quote-mark-color: rgba(37,99,235,0.10);
+        }
+
+        /* ============================================================
+           GLOBAL BG & TEXT
+        ============================================================ */
+        html { background-color: var(--bg-page); }
+        body  { background-color: var(--bg-page); color: var(--text-primary); }
+
+        /* ============================================================
+           HERO MESH BACKGROUNDS
+        ============================================================ */
+        [data-theme="dark"] .bg-mesh-hero {
+            background-color: #080e27;
+            background-image:
+                radial-gradient(ellipse 80% 60% at 15% 15%, rgba(37,99,235,0.28) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 85% 85%, rgba(15,31,92,0.60) 0%, transparent 65%);
+        }
+
+        [data-theme="light"] .bg-mesh-hero {
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(ellipse 70% 50% at 10% 0%, rgba(3,105,161,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 90%, rgba(219,234,254,0.35) 0%, transparent 65%);
+        }
+
+        [data-theme="dark"] .bg-mesh-pricing {
+            background-color: #050c1e;
+            background-image:
+                radial-gradient(ellipse 70% 55% at 8% 85%, rgba(37,99,235,0.22) 0%, transparent 60%),
+                radial-gradient(ellipse 55% 65% at 92% 10%, rgba(15,31,92,0.45) 0%, transparent 60%);
+        }
+
+        [data-theme="light"] .bg-mesh-pricing {
+            background-color: #f4f6f8;
+            background-image: none;
+        }
+
+        /* ============================================================
+           GLASSMORPHISM COMPONENTS
+        ============================================================ */
+        .glass-dark {
+            background: var(--bg-surface);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255,255,255,0.09);
+        }
+
+        .glass-hero-panel {
+            background: var(--bg-surface);
+            backdrop-filter: blur(26px);
+            -webkit-backdrop-filter: blur(26px);
+            border: 1px solid var(--border-glass);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        [data-theme="light"] .glass-hero-panel {
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid rgba(15,23,42,0.09);
+            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
+        }
+
+        .glass-pricing-card {
+            background: var(--bg-surface-mid);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid var(--border-blue);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(37,99,235,0.10), 0 28px 70px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.09);
+        }
+
+        [data-theme="light"] .glass-pricing-card {
+            background: #ffffff;
+            border: 1px solid rgba(37,99,235,0.14);
+            box-shadow: 0 4px 32px rgba(15,23,42,0.10);
+        }
+
+        .glass-pricing-features {
+            background: rgba(4,8,22,0.45);
+            border-top: 1px solid rgba(96,165,250,0.11);
+        }
+
+        [data-theme="light"] .glass-pricing-features {
+            background: #f8fafc;
+            border-top: 1px solid rgba(37,99,235,0.10);
+        }
+
+        [data-theme="light"] .glass-dark {
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid rgba(15,23,42,0.09);
+            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
+        }
+
+        [data-theme="light"] .glass-quote-panel {
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid rgba(15,23,42,0.09);
+            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
+        }
+
+        .glass-quote-panel {
+            background: var(--quote-panel-bg);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid var(--quote-panel-border);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-glass);
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        /* ============================================================
+           NAVIGATION
+        ============================================================ */
+        .nav-glass {
+            background: var(--nav-bg);
+            backdrop-filter: blur(22px) saturate(1.5);
+            -webkit-backdrop-filter: blur(22px) saturate(1.5);
+            border-bottom: 1px solid var(--nav-border);
+            box-shadow: 0 1px 24px rgba(0,0,0,0.15);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-glass.scrolled {
+            background: var(--nav-bg-solid);
+            box-shadow: 0 2px 32px rgba(0,0,0,0.20);
+        }
+
+        .nav-logo {
+            font-family: 'Michroma', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.12em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        [data-theme="dark"] .nav-logo { text-shadow: 0 0 24px rgba(96,165,250,0.40); }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--nav-link);
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            transition: color 0.25s ease, background 0.25s ease;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: var(--nav-link-hover);
+            background: rgba(37,99,235,0.08);
+        }
+
+        .btn-nav-cta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #fff;
+            border: 1px solid rgba(96,165,250,0.25);
+            box-shadow: 0 0 16px rgba(37,99,235,0.30);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-nav-cta:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 0 26px rgba(37,99,235,0.55);
+            transform: translateY(-1px);
+        }
+
+        /* Theme Switch (Hell / Dunkel) */
+        .theme-switch {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            border: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .theme-switch-btn {
+            padding: 0.28rem 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: 9999px;
+            transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+            line-height: 1.5;
+        }
+
+        .theme-switch-btn.active {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            background: var(--nav-bg-solid);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border-top: 1px solid var(--nav-border);
+        }
+
+        #mobile-menu a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--nav-link);
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+            display: block;
+            transition: color 0.25s, background 0.25s;
+            text-decoration: none;
+        }
+
+        #mobile-menu a:hover { color: var(--nav-link-hover); background: rgba(37,99,235,0.08); }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        .hero-section {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0 4rem;
+        }
+
+        .hero-blob-1 {
+            position: absolute; top: -12%; right: -4%;
+            width: 58%; height: 72%;
+            background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 68%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .hero-blob-2 {
+            position: absolute; bottom: -18%; left: -6%;
+            width: 48%; height: 64%;
+            background: radial-gradient(ellipse, rgba(96,165,250,0.08) 0%, transparent 68%);
+            pointer-events: none; z-index: 0;
+        }
+
+        [data-theme="light"] .hero-blob-1 {
+            background: radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 68%);
+        }
+        [data-theme="light"] .hero-blob-2 {
+            background: radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 68%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            background: rgba(37,99,235,0.14);
+            border: 1px solid rgba(96,165,250,0.26);
+            color: #93c5fd;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            backdrop-filter: blur(8px);
+            margin-bottom: 1.5rem;
+        }
+
+        [data-theme="light"] .hero-badge {
+            background: rgba(37,99,235,0.08);
+            border-color: rgba(37,99,235,0.22);
+            color: #1d4ed8;
+        }
+
+        .hero-headline {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.1rem, 4.5vw, 3.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: var(--hero-headline);
+            margin-bottom: 2rem;
+        }
+
+        .hero-headline .accent {
+            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 60%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        [data-theme="light"] .hero-headline .accent {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .benefit-check {
+            width: 1.375rem; height: 1.375rem;
+            color: #34d399;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 5px rgba(52,211,153,0.45));
+        }
+
+        [data-theme="light"] .benefit-check { filter: none; color: #059669; }
+
+        .benefit-text {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .hero-hinweis {
+            margin-top: 1.5rem;
+            padding: 0.9rem 1.1rem;
+            border-radius: 0.875rem;
+            background: rgba(37,99,235,0.08);
+            border: 1px solid rgba(96,165,250,0.14);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.68;
+        }
+
+        [data-theme="light"] .hero-hinweis {
+            background: rgba(37,99,235,0.05);
+            border-color: rgba(37,99,235,0.12);
+        }
+
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.9rem 2.1rem;
+            border-radius: 9999px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            color: #fff;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e3a8a 100%);
+            border: 1px solid rgba(96,165,250,0.22);
+            box-shadow: 0 4px 22px rgba(37,99,235,0.40);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 34px rgba(37,99,235,0.60);
+        }
+
+        .hero-image-wrapper {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 28px 80px rgba(0,0,0,0.50);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        [data-theme="light"] .hero-image-wrapper {
+            box-shadow: 0 12px 48px rgba(15,23,42,0.18);
+        }
+
+        .hero-image-wrapper:hover {
+            transform: translateY(-5px) scale(1.012);
+            box-shadow: 0 36px 100px rgba(0,0,0,0.55), 0 0 40px rgba(37,99,235,0.18);
+        }
+
+        .hero-image-wrapper img { display: block; width: 100%; border-radius: 1.5rem; }
+
+        @keyframes float-hero {
+            0%, 100% { transform: translateY(0px); }
+            40%       { transform: translateY(-9px); }
+            70%       { transform: translateY(-4px); }
+        }
+        .animate-float-hero { animation: float-hero 7s ease-in-out infinite; }
+
+        /* ============================================================
+           LABELS & TITLES
+        ============================================================ */
+        .section-label {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 0.875rem;
+        }
+
+        [data-theme="dark"] .section-label { color: #60a5fa; }
+
+        .section-title { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; color: var(--text-primary); }
+
+        /* ============================================================
+           PRICING
+        ============================================================ */
+        .pricing-amount {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.2;
+        }
+
+        [data-theme="dark"] .pricing-amount { color: #fff; }
+        [data-theme="light"] .pricing-amount { color: #0f172a; }
+
+        .badge-popular {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.22rem 0.8rem;
+            border-radius: 9999px;
+            background: rgba(37,99,235,0.14);
+            border: 1px solid rgba(37,99,235,0.28);
+            color: #2563eb;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        [data-theme="dark"] .badge-popular { background: rgba(96,165,250,0.14); border-color: rgba(96,165,250,0.30); color: #93c5fd; }
+
+        .btn-pricing {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0.9rem 1.5rem; border-radius: 9999px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem;
+            background: #fff; color: #1e3a8a;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+            transition: all 0.25s ease; text-decoration: none;
+        }
+
+        [data-theme="light"] .btn-pricing { background: #2563eb; color: #fff; box-shadow: 0 4px 16px rgba(37,99,235,0.35); }
+        .btn-pricing:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
+        [data-theme="light"] .btn-pricing:hover { background: #1d4ed8; box-shadow: 0 8px 26px rgba(37,99,235,0.45); }
+
+        .btn-pricing-secondary {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0.9rem 1.5rem; border-radius: 9999px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #fff; box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+            transition: all 0.25s ease; text-decoration: none;
+        }
+
+        .btn-pricing-secondary:hover { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(37,99,235,0.50); }
+
+        .pricing-info-box {
+            background: var(--price-info-bg);
+            border: 1px solid var(--price-info-border);
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .pricing-feature-row {
+            display: flex; align-items: flex-start; gap: 0.875rem;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--price-row-border);
+            font-size: 1rem;
+        }
+
+        .pricing-feature-row:last-child { border-bottom: none; }
+
+        .pricing-card-text { color: var(--text-secondary); font-size: 1rem; line-height: 1.68; }
+        [data-theme="light"] .pricing-card-text { color: #475569; }
+        [data-theme="dark"] .pricing-card-text { color: rgba(148,163,184,0.84); }
+
+        /* ============================================================
+           UPDATE SERVICE
+        ============================================================ */
+        .update-section { background: var(--update-bg); position: relative; overflow: hidden; }
+
+        [data-theme="dark"] .update-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 45% at 82% 28%, rgba(37,99,235,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 42% 35% at 18% 72%, rgba(96,165,250,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .service-icon { width: 1.375rem; height: 1.375rem; color: var(--service-icon-color); flex-shrink: 0; }
+        [data-theme="dark"] .service-icon { filter: drop-shadow(0 0 4px rgba(96,165,250,0.40)); }
+
+        .quote-mark {
+            font-family: Georgia, serif; font-size: 5rem; line-height: 0.7;
+            color: var(--quote-mark-color);
+            position: absolute; top: 1.5rem; left: 1.75rem;
+            pointer-events: none; user-select: none;
+        }
+
+        /* ============================================================
+           STEPS SECTION
+        ============================================================ */
+        .steps-section { background: var(--steps-section); padding: 5rem 0; }
+
+        .step-number {
+            font-family: 'Michroma', sans-serif;
+            font-size: 2.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .step-number { background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
+
+        .step-icon-bubble {
+            width: 2.75rem; height: 2.75rem; border-radius: 0.875rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+            margin-bottom: 1.25rem; flex-shrink: 0;
+        }
+
+        .step-card {
+            background: var(--step-bg);
+            border-radius: 1.25rem; padding: 2rem;
+            border: 1px solid var(--step-border);
+            box-shadow: var(--shadow-card);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            height: 100%;
+        }
+
+        .step-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .step-card h3 { font-weight: 700; font-size: 1.15rem; color: var(--step-text); margin-bottom: 0.75rem; }
+        .step-card p { font-size: 1rem; color: var(--step-body); line-height: 1.75; }
+
+        /* ============================================================
+           CTA
+        ============================================================ */
+        .cta-section {
+            position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 42%, #2563eb 72%, #1e40af 100%);
+            padding: 5rem 0;
+        }
+
+        [data-theme="light"] .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #1d4ed8 100%);
+        }
+
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 55% 90% at 0% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 65% 65% at 100% 50%, rgba(30,58,138,0.35) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-glass-overlay {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 2rem; padding: 3rem;
+            position: relative; z-index: 1;
+        }
+
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: 0.625rem;
+            padding: 1.05rem 2.25rem; border-radius: 9999px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em;
+            background: #fff; color: #1e3a8a;
+            box-shadow: 0 4px 22px rgba(0,0,0,0.22);
+            transition: all 0.25s ease; white-space: nowrap; text-decoration: none;
+        }
+
+        .btn-cta:hover { background: #eff6ff; transform: translateY(-2px); box-shadow: 0 12px 34px rgba(0,0,0,0.28); }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        .footer-section { background: var(--footer-bg); border-top: 1px solid var(--footer-border); padding: 3rem 0; }
+        .footer-text { font-size: 0.875rem; color: var(--footer-text); line-height: 1.80; }
+        .footer-link { color: #60a5fa; transition: color 0.25s; }
+        .footer-link:hover { color: #93c5fd; }
+        .footer-divider { border-color: var(--footer-border); margin: 2rem 0; }
+        .footer-copy { font-size: 0.8125rem; color: var(--footer-copy); }
+
+        /* Smooth theme transition on everything */
+        *, nav, section, footer, div, p, h1, h2, h3, h4, span, a {
+            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+        }
+        /* But don't transition transforms */
+        a, button { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-gradient-to-r from-blue-950 to-blue-600 shadow-lg">
+    <nav class="nav-glass sticky top-0 z-50" id="main-nav">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="#" class="flex items-center space-x-2">
-                        <span class="text-2xl font-bold Montserrat text-white">ZKFonline</span>
-                    </a>
-                </div>
-                
-                <!-- Main Navigation -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-6">
-                        <a href="#vorteile" class="text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Vorteile</a>
-                        <a href="#preis" class="text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Preise</a>
-                        <a href="#referenzen" class="text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Referenzen</a>
-                        <a href="#kontakt" class="text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Kontakt</a>
-                        <a href="https://www.innomega.se/" class="text-gray-200 hover:text-white btn-primary ml-4">Impressum</a>
+                <a href="#" class="nav-logo">ZKFonline</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1 ml-10">
+                    <a href="#vorteile" class="nav-link">Vorteile</a>
+                    <a href="#preis" class="nav-link">Preise</a>
+                    <a href="#kontakt" class="nav-link">Kontakt</a>
+                    <a href="https://www.innomega.se/" class="btn-nav-cta ml-2">Impressum</a>
+                    <div class="theme-switch ml-3" role="group" aria-label="Theme wechseln">
+                        <button class="theme-switch-btn" data-set-theme="light">Hell</button>
+                        <button class="theme-switch-btn" data-set-theme="dark">Dunkel</button>
                     </div>
                 </div>
-                
+
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button type="button" class="text-gray-200 hover:text-white focus:outline-none" id="mobile-menu-button">
+                <div class="md:hidden flex items-center gap-2">
+                    <div class="theme-switch" role="group" aria-label="Theme wechseln">
+                        <button class="theme-switch-btn" data-set-theme="light">Hell</button>
+                        <button class="theme-switch-btn" data-set-theme="dark">Dunkel</button>
+                    </div>
+                    <button type="button" style="color: var(--nav-link); background:none; border:none; cursor:pointer;" id="mobile-menu-button">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-            
+
             <!-- Mobile Menu -->
             <div class="hidden md:hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#vorteile" class="text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Vorteile</a>
-                    <a href="#preis" class="text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Preise</a>
-                    <a href="#referenzen" class="hidden text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Referenzen</a>
-                    <a href="#kontakt" class="text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kontakt</a>
-                    <a href="https://www.innomega.se/impressum/" class="text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Impressum</a>
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#vorteile">Vorteile</a>
+                    <a href="#preis">Preise</a>
+                    <a href="#kontakt">Kontakt</a>
+                    <a href="https://www.innomega.se/impressum/">Impressum</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="relative bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden">
-        <!-- Decorative elements -->
-        <div class="hidden lg:block lg:absolute lg:inset-0">
-            <svg class="absolute left-0 top-0 transform -translate-y-8 opacity-10" width="640" height="784" fill="none" viewBox="0 0 640 784">
-                <defs>
-                    <pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" fill="currentColor"></rect>
-                    </pattern>
-                </defs>
-                <rect width="640" height="784" fill="url(#pattern)"></rect>
-            </svg>
-        </div>
-        
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+    <div class="hero-section bg-mesh-hero">
+        <div class="hero-blob-1" aria-hidden="true"></div>
+        <div class="hero-blob-2" aria-hidden="true"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+
                 <!-- Left Column -->
-                <div class="sm:text-center md:max-w-3xl md:mx-auto lg:col-span-6 lg:text-left">
-                    <div>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-4">
-                            <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                            </svg>
-                            Internetseiten mit Aktualisierungsservice "all inklusive"
-                        </span>
+                <div class="lg:col-span-6">
+                    <div class="hero-badge">
+                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Internetseiten mit Aktualisierungsservice &ldquo;all inklusive&rdquo;
                     </div>
-                    
-                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+
+                    <h1 class="hero-headline">
                         <span class="block">Professioneller Web-Auftritt</span>
-                        <span class="block text-blue-600">maßgeschneidert für Ihren KfZ- & Karosseriebetrieb</span>
+                        <span class="block accent">maßgeschneidert für Ihren KfZ- &amp; Karosseriebetrieb</span>
                     </h1>
-                    
-                    <div id="vorteile" class="mt-8 card p-6 bg-white/90 backdrop-blur-sm">
-                        <h2 class="text-2xl font-bold text-blue-600 mb-4">Ihre Vorteile auf einen Blick:</h2>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                    <!-- Benefits Glass Panel -->
+                    <div id="vorteile" class="glass-hero-panel p-6 sm:p-8">
+                        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.10em;text-transform:uppercase;color:#2563eb;margin-bottom:1.25rem;">Ihre Vorteile auf einen Blick</h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="benefit-check" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="ml-3 text-gray-700">Funktioniert auf allen aktuellen Mobiltelefonen, Tablets, Desktops etc.</span>
+                                <span class="benefit-text">Funktioniert auf allen aktuellen Mobiltelefonen, Tablets, Desktops etc.</span>
                             </li>
-                            <li class="flex items-start">
-                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <li class="flex items-start gap-3">
+                                <svg class="benefit-check" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="ml-3 text-gray-700">Schnelle Ladezeiten und moderne Technik, selbstverständlich.</span>
+                                <span class="benefit-text">Schnelle Ladezeiten und moderne Technik, selbstverständlich.</span>
                             </li>
-                            <li class="flex items-start">
-                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <li class="flex items-start gap-3">
+                                <svg class="benefit-check" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="ml-3 text-gray-700">Sicherheitsupdates und Aktualisierungsservice dabei!</span>
+                                <span class="benefit-text">Sicherheitsupdates und Aktualisierungsservice dabei!</span>
                             </li>
                         </ul>
-                        <div class="mt-6 p-3 bg-blue-50 rounded-lg border border-blue-100 text-xs text-gray-600">
-                            <p><span class="font-semibold">Hinweis:</span> Ihre E-Mails sind komplett separat von der Internetseite. Wenn Sie derzeit mit Ihrer E-Mail Lösung zufrieden sind, bleiben Sie dabei! Wenn nicht, dann können wir Ihnen bei der Nutzung von Hosted Exchange behilflich sein, das dann mit Microsoft direkt abgerechnet wird.</p>
+                        <div class="hero-hinweis">
+                            <strong style="color:#2563eb;">Hinweis:</strong> Ihre E-Mails sind komplett separat von der Internetseite. Wenn Sie derzeit mit Ihrer E-Mail Lösung zufrieden sind, bleiben Sie dabei! Wenn nicht, können wir Ihnen bei der Nutzung von Hosted Exchange behilflich sein.
                         </div>
                     </div>
-                    
+
                     <div class="mt-8">
-                        <a href="#kontakt" class="btn-primary inline-flex items-center">
+                        <a href="#kontakt" class="btn-hero">
                             Jetzt Online-Präsenz starten
-                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Right Column - Device Showcase -->
-                <div class="mt-12 relative lg:mt-0 lg:col-span-6 flex justify-center">
-                    <div class="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden animate-float">
-                        <img class="w-full object-cover shadow-xl rounded-lg transition-all duration-500 transform hover:scale-105" src="images/zkfonline-responsive-screens-on-white1000px.jpg" alt="ZKFonline - Bestens präsentiert auf allen Bildschirmen">
+                <div class="mt-12 lg:mt-0 lg:col-span-6 flex justify-center items-center">
+                    <div class="hero-image-wrapper animate-float-hero w-full">
+                        <img src="images/zkfonline-responsive-screens-on-white1000px.jpg" alt="ZKFonline - Bestens präsentiert auf allen Bildschirmen">
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
-    <!-- Examples Section -->
-    <section id="referenzen" class="bg-white py-12 hidden">
+    <!-- References (hidden) -->
+    <section id="referenzen" class="py-12 hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                    Referenzen unserer Kunden
-                </h2>
-                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                    Entdecken Sie bereits umgesetzte Projekte im ZKFonline Paket:
-                </p>
-            </div>
-            
-            <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- Reference 1 -->
-                <div class="card hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                    <div class="h-48 bg-gray-200 rounded-t-xl overflow-hidden">
-                        <a href="https://www.auto-lingk.de/" target="_blank" class="block w-full h-full bg-cover bg-center" style="background-image: url('https://placeholder.pics/svg/400x250/DEDEDE/555555/Auto%20Lingk')"></a>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-medium text-gray-900">Auto Lingk</h3>
-                        <p class="mt-2 text-sm text-gray-500">Recklinghausen</p>
-                        <a href="https://www.auto-lingk.de/" target="_blank" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Website ansehen
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
+            <h2 class="text-3xl font-extrabold text-center section-title mb-10">Referenzen unserer Kunden</h2>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="glass-dark p-5">
+                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <h3 class="font-semibold" style="color:var(--text-primary);">Auto Lingk</h3>
+                    <p class="text-sm mt-1" style="color:var(--text-tertiary);">Recklinghausen</p>
+                    <a href="https://www.auto-lingk.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
                 </div>
-                
-                <!-- Reference 2 -->
-                <div class="card hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                    <div class="h-48 bg-gray-200 rounded-t-xl overflow-hidden">
-                        <a href="https://www.kw-ostermann.de/" target="_blank" class="block w-full h-full bg-cover bg-center" style="background-image: url('https://placeholder.pics/svg/400x250/DEDEDE/555555/KW%20Ostermann')"></a>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-medium text-gray-900">KW Ostermann</h3>
-                        <p class="mt-2 text-sm text-gray-500">Mühlhausen</p>
-                        <a href="https://www.kw-ostermann.de/" target="_blank" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Website ansehen
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
+                <div class="glass-dark p-5">
+                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <h3 class="font-semibold" style="color:var(--text-primary);">KW Ostermann</h3>
+                    <p class="text-sm mt-1" style="color:var(--text-tertiary);">Mühlhausen</p>
+                    <a href="https://www.kw-ostermann.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
                 </div>
-                
-              
-                <!-- Reference 4 -->
-                <div class="card hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                    <div class="h-48 bg-gray-200 rounded-t-xl overflow-hidden">
-                        <a href="https://www.karosseriebau-heinz.de/" target="_blank" class="block w-full h-full bg-cover bg-center" style="background-image: url('https://placeholder.pics/svg/400x250/DEDEDE/555555/Karosseriebau%20Heinz')"></a>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-medium text-gray-900">Karosseriebau Heinz</h3>
-                        <p class="mt-2 text-sm text-gray-500">Großheide</p>
-                        <a href="https://www.karosseriebau-heinz.de/" target="_blank" class="mt-4 inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Website ansehen
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
+                <div class="glass-dark p-5">
+                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <h3 class="font-semibold" style="color:var(--text-primary);">Karosseriebau Heinz</h3>
+                    <p class="text-sm mt-1" style="color:var(--text-tertiary);">Großheide</p>
+                    <a href="https://www.karosseriebau-heinz.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <!--- <section id="preis" class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section id="preis" class="bg-mesh-pricing py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-20 items-start">
+
+                <!-- Left: Pricing Card -->
                 <div class="lg:col-span-5">
-                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                        Ihr Festpreis für maximalen Erfolg.
-                    </h2>
-                    <p class="mt-4 text-lg text-gray-500">
-                        Ihre neue, moderne Internetseite mit Aktualisierungsservice* samt Sicherheitsupdates und kostenloser Beratung während der Vertragslaufzeit, erhalten Sie zum fairen Komplettpreis.
+                    <p class="section-label">Transparente Preise</p>
+                    <h2 class="section-title text-3xl sm:text-4xl mb-4">Ihr Festpreis für Ihren Erfolg.</h2>
+                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-secondary);margin-bottom:2.5rem;">
+                        Ihre neue Internetseite inklusive Hosting, Updateservice* und kostenloser Beratung &mdash; zum attraktiven Komplettpreis.
                     </p>
-                    <div class="mt-6 bg-blue-700 rounded-lg shadow-lg overflow-hidden">
-                        <div class="px-6 py-8">
-                            <div class="flex items-center">
-                                <h3 class="text-2xl font-semibold text-white">Alles-inklusive Paket</h3>
-                                <span class="ml-3 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">Beliebt</span>
+
+                    <div class="glass-pricing-card">
+                        <div style="padding:2rem 2rem 1.75rem;">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.15rem;color:var(--text-primary);">Alles-inklusive Paket</h3>
+                                <span class="badge-popular">Beliebt</span>
                             </div>
-                            <p class="mt-2 text-white">Alles was Sie für Ihre professionelle Online-Präsenz benötigen.</p>
-                            <div class="mt-6">
-                                <div class="flex items-baseline">
-                                    <span class="text-5xl font-extrabold text-white">297€</span>
-                                    <span class="ml-1 text-xl font-semibold text-blue-200">/ Quartal**</span>
-                                </div>
-                                <p class="mt-2 text-sm text-blue-200">zzgl. USt.</p>
+                            <p style="color:var(--text-secondary);font-size:1rem;line-height:1.6;margin-bottom:2rem;">
+                                Alles, was Sie für eine professionelle Online-Präsenz brauchen.
+                            </p>
+                            <div class="flex items-baseline gap-3 mb-1">
+                                <span class="pricing-amount">EUR 2.850,-</span>
                             </div>
-                            <div class="mt-6">
-                                <div class="rounded-md shadow">
-                                    <a href="#kontakt" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 transition duration-300">
-                                        Jetzt durchstarten
-                                    </a>
-                                </div>
-                            </div>
+                            <p style="color:var(--text-tertiary);font-size:0.875rem;margin-bottom:2rem;">zzgl. USt. / 2 Jahre Mindestlaufzeit</p>
+                            <a href="#kontakt" class="btn-pricing">Jetzt starten</a>
                         </div>
-                        <div class="px-6 pt-6 pb-8 bg-blue-800">
-                            <h4 class="text-sm font-semibold text-white uppercase tracking-wide">Im Preis enthalten:</h4>
-                            <ul class="mt-6 space-y-4">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <svg class="h-6 w-6 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-3 text-base text-blue-200">Erstellung der Internetseite</p>
+                        <div class="glass-pricing-features" style="padding:1.75rem 2rem 2rem;">
+                            <h4 style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:1.25rem;">Enthaltene Leistungen:</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
+                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Erstellung der Website
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <svg class="h-6 w-6 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-3 text-base text-blue-200">Betrieb mit Sicherheitsupdates</p>
+                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
+                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Hosting &amp; Sicherheitsupdates
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <svg class="h-6 w-6 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-3 text-base text-blue-200">Aktualisierungsservice für Ihre Inhalte</p>
+                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
+                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Monatlicher Inhalts-Update-Service
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <svg class="h-6 w-6 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-3 text-base text-blue-200">Kostenlose Beratung</p>
+                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
+                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Kostenlose Beratung
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-12 lg:mt-0 lg:col-span-7">
-                    <div class="glass-card p-8">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Preisverdeutlichung:</h3>
-                        <div class="rounded-md bg-blue-50 p-6 mb-6">
-                            <div class="flex">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="ml-3 text-blue-700 font-medium">
-                                    <strong>2.376 EUR zzgl. MWSt. für 24 Monate (Mindestlaufzeit)</strong>, alles dabei, was Sie am Anfang benötigen: Erstellung, Betrieb, Pflege, Beratung.
-                                </div>
+                <!-- Right: Details -->
+                <div class="mt-16 lg:mt-0 lg:col-span-7">
+                    <div class="glass-dark" style="padding:2.5rem;">
+                        <h3 style="font-weight:700;font-size:1.2rem;color:var(--text-primary);margin-bottom:1.75rem;">Preisübersicht:</h3>
+
+                        <div class="pricing-info-box" style="margin-bottom:2rem;">
+                            <div class="flex gap-3">
+                                <svg style="height:1.25rem;width:1.25rem;color:#2563eb;flex-shrink:0;margin-top:0.15rem;" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                <p style="color:var(--price-info-text);font-size:1rem;line-height:1.68;">
+                                    <strong style="color:var(--text-primary);">EUR 2.850,- zzgl. USt. für 24 Monate</strong><br>
+                                    Ihre statische Website &ndash; maximale Sicherheit, blitzschnelle Ladezeiten, keine Serverangriffsflächen.
+                                </p>
                             </div>
                         </div>
-                        
-                        <p class="text-gray-600 mb-6">
-                            Zugang zu wichtigen Internet-Rechtstipps bekommen Sie außerdem, da wir Agenturpartner von eRecht24 sind.
+
+                        <p style="font-size:1.0625rem;line-height:1.78;color:var(--text-secondary);margin-bottom:2rem;">
+                            Unsere statischen Internetseiten sind extrem schnell, besonders sicher gegen Angriffe und benötigen keine Wartung klassischer Webserver. Dadurch bieten wir Ihnen eine langfristige, sorgenfreie Online-Präsenz.
                         </p>
-                        
-                        <h4 class="text-lg font-medium text-gray-900 mb-3">Nach den ersten 24 Monaten haben Sie die Wahl:</h4>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            <div class="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
-                                <div class="flex items-center mb-3">
-                                    <div class="bg-blue-100 rounded-full p-2">
-                                        <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                        </svg>
-                                    </div>
-                                    <h5 class="ml-2 text-lg font-semibold text-gray-900">Option 1: Komplett-Service</h5>
-                                </div>
-                                <p class="text-gray-600">Einschliesslich regelmässiger Änderungen und Ergänzungen (ohne Zusatzkosten)</p>
-                                <div class="mt-4 flex items-baseline">
-                                    <span class="text-2xl font-bold text-gray-900">297 EUR</span>
-                                    <span class="ml-1 text-lg font-medium text-gray-500">/ Quartal</span>
-                                </div>
-                                <p class="text-sm text-gray-500 mt-1">zzgl. USt.</p>
+
+                        <div>
+                            <div class="pricing-feature-row">
+                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span style="font-size:1rem;color:var(--text-secondary);">Schnelle Ladezeiten auf allen Geräten</span>
                             </div>
-                            
-                            <div class="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
-                                <div class="flex items-center mb-3">
-                                    <div class="bg-blue-100 rounded-full p-2">
-                                        <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                        </svg>
-                                    </div>
-                                    <h5 class="ml-2 text-lg font-semibold text-gray-900">Option 2: Basis-Service</h5>
-                                </div>
-                                <p class="text-gray-600">Wir kümmern uns um Betrieb der Internetseite, Sicherheitsupdates und Backup</p>
-                                <div class="mt-4 flex items-baseline">
-                                    <span class="text-2xl font-bold text-gray-900">49 EUR</span>
-                                    <span class="ml-1 text-lg font-medium text-gray-500">/ Monat</span>
-                                </div>
-                                <p class="text-sm text-gray-500 mt-1">zzgl. USt. (ohne kostenfreie Änderungen)</p>
+                            <div class="pricing-feature-row">
+                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span style="font-size:1rem;color:var(--text-secondary);">Höchste Sicherheit durch statische Bereitstellung</span>
                             </div>
+                            <div class="pricing-feature-row">
+                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span style="font-size:1rem;color:var(--text-secondary);">Keine Server-Wartung notwendig</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:2.5rem;">
+                            <a href="#kontakt" class="btn-pricing-secondary">Unverbindlich anfragen</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </section> --->
-<!-- Preisbereich -->
-<section id="preis" class="py-16 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-        
-        <!-- Linke Spalte -->
-        <div class="lg:col-span-5">
-          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Ihr Festpreis für Ihren Erfolg.
-          </h2>
-          <p class="mt-4 text-lg text-gray-500">
-            Ihre neue Internetseite inklusive Hosting, Updateservice* und kostenloser Beratung zum attraktiven Komplettpreis.
-          </p>
-          
-          <div class="mt-6 bg-blue-700 rounded-lg shadow-lg overflow-hidden">
-            <div class="px-6 py-8">
-              <div class="flex items-center">
-                <h3 class="text-2xl font-semibold text-white">Alles-inklusive Paket</h3>
-                <span class="ml-3 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                  Beliebt
-                </span>
-              </div>
-              <p class="mt-2 text-white">
-                Alles, was Sie für eine professionelle Online-Präsenz brauchen.
-              </p>
-              
-              <div class="mt-6">
-                <div class="flex items-baseline">
-                  <span class="text-5xl font-extrabold text-white">2.850€</span>
-                  <span class="ml-1 text-xl font-semibold text-blue-200">/ 2 Jahre</span>
-                </div>
-                <p class="mt-2 text-sm text-blue-200">zzgl. USt.</p>
-              </div>
-  
-              <div class="mt-6">
-                <a href="#kontakt" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 transition duration-300">
-                  Jetzt starten
-                </a>
-              </div>
-            </div>
-  
-            <div class="px-6 pt-6 pb-8 bg-blue-800">
-              <h4 class="text-sm font-semibold text-white uppercase tracking-wide">
-                Enthaltene Leistungen:
-              </h4>
-              <ul class="mt-6 space-y-4">
-                <li class="flex items-start">
-                  <svg class="h-6 w-6 text-blue-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p class="ml-3 text-base text-blue-200">Erstellung der Website</p>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-6 w-6 text-blue-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p class="ml-3 text-base text-blue-200">Hosting & Sicherheitsupdates</p>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-6 w-6 text-blue-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p class="ml-3 text-base text-blue-200">Monatlicher Inhalts-Update-Service</p>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-6 w-6 text-blue-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p class="ml-3 text-base text-blue-200">Kostenlose Beratung</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Rechte Spalte -->
-        <div class="mt-12 lg:mt-0 lg:col-span-7">
-          <div class="glass-card p-8">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Preisübersicht:</h3>
+    </section>
 
-            <div class="rounded-md bg-blue-50 p-6 mb-6">
-              <div class="flex">
-                <svg class="h-5 w-5 text-blue-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
-                </svg>
-                <p class="ml-3 text-blue-700 font-medium">
-                  <strong>2.850 EUR zzgl. USt. für 24 Monate (Mindestlaufzeit)</strong><br>
-                  Ihre statische Website – maximale Sicherheit, blitzschnelle Ladezeiten, keine Serverangriffsflächen.
-                </p>
-              </div>
-            </div>
-
-            <p class="text-gray-600 mb-6">
-              Unsere statischen Internetseiten sind extrem schnell, besonders sicher gegen Angriffe und benötigen keine Wartung klassischer Webserver.
-              Dadurch bieten wir Ihnen eine langfristige, sorgenfreie Online-Präsenz.
-            </p>
-
-            <div class="mt-8 flex items-center">
-              <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="ml-3 text-base text-gray-700">Schnelle Ladezeiten auf allen Geräten</span>
-            </div>
-            <div class="mt-4 flex items-center">
-              <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="ml-3 text-base text-gray-700">Höchste Sicherheit durch statische Bereitstellung</span>
-            </div>
-            <div class="mt-4 flex items-center">
-              <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="ml-3 text-base text-gray-700">Keine Server-Wartung notwendig</span>
-            </div>
-
-            <div class="mt-8">
-              <a href="#kontakt" class="flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-700 hover:bg-blue-800 transition duration-300">
-                Unverbindlich anfragen
-              </a>
-            </div>
-          </div>
-        </div>
-  
-      </div>
-    </div>
-  </section>
-    <!-- What is the Update Service? -->
-    <section class="bg-blue-900 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+    <!-- Update Service Section -->
+    <section class="update-section py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20">
                 <div>
-                    <h2 class="text-3xl font-bold text-white">Ihr Aktualisierungsservice: Einfach Zeit sparen & stets aktuell bleiben</h2>
-                    <div class="mt-6 prose prose-lg text-gray-300">
-                        <p>
-                            Der Aktualisierungsservice ist für monatliche Änderungen am Inhalt und Umfang der Internetseite vorgesehen. Hierdurch erledigen wir für Sie das hinzufügen von Inhalten, die Sie uns per E-Mail zusenden.
-                        </p>
-                        <p>
-                            Beispielsweise:
-                        </p>
-                        <ul class="space-y-2 mt-4">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-300 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                Arbeitsproben
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-300 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                Bilder und PDFs
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-300 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                Nachrichten und Events
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-300 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                Mitarbeitervorstellung
-                            </li>
-                        </ul>
-                    </div>
+                    <p class="section-label">Ihr Service-Versprechen</p>
+                    <h2 class="section-title text-3xl sm:text-4xl mb-6">
+                        Ihr Aktualisierungsservice: Zeit sparen &amp; stets aktuell bleiben
+                    </h2>
+                    <p style="font-size:1.0625rem;line-height:1.80;color:var(--update-sub);margin-bottom:1.75rem;">
+                        Der Aktualisierungsservice ist für monatliche Änderungen am Inhalt und Umfang der Internetseite vorgesehen. Wir erledigen für Sie das Hinzufügen von Inhalten, die Sie uns per E-Mail zusenden.
+                    </p>
+                    <p style="font-size:1rem;color:var(--update-sub);margin-bottom:1.25rem;">Beispielsweise:</p>
+                    <ul style="display:flex;flex-direction:column;gap:1.25rem;">
+                        <li class="flex items-center gap-3" style="font-size:1.0625rem;color:var(--update-text);">
+                            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Arbeitsproben
+                        </li>
+                        <li class="flex items-center gap-3" style="font-size:1.0625rem;color:var(--update-text);">
+                            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Bilder und PDFs
+                        </li>
+                        <li class="flex items-center gap-3" style="font-size:1.0625rem;color:var(--update-text);">
+                            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Nachrichten und Events
+                        </li>
+                        <li class="flex items-center gap-3" style="font-size:1.0625rem;color:var(--update-text);">
+                            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Mitarbeitervorstellung
+                        </li>
+                    </ul>
                 </div>
-                <div class="mt-10 lg:mt-0 relative">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 lg:p-8 shadow-xl">
-                        <blockquote class="relative">
-                            <svg class="absolute top-0 left-0 transform -translate-y-6 -translate-x-3 h-16 w-16 text-blue-400 opacity-20" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                                <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                            </svg>
-                            <p class="text-lg text-gray-200 relative z-10">
-                                Sie müssen sich weder mit neuer Software oder Dateiformaten auseinandersetzen, sagen Sie uns einfach, was Sie gerne auf Ihrer Internetseite machen möchten, und in 99% der Fälle lösen wir das - ohne wenn und aber oder Folgekosten.
+
+                <div style="margin-top:3rem;" class="lg:mt-0">
+                    <div class="glass-quote-panel">
+                        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+                        <blockquote style="padding-top:3.25rem;">
+                            <p style="font-size:1.125rem;color:var(--quote-text);line-height:1.82;">
+                                Sie müssen sich weder mit neuer Software oder Dateiformaten auseinandersetzen &mdash; sagen Sie uns einfach, was Sie gerne auf Ihrer Internetseite machen möchten, und in 99% der Fälle lösen wir das ohne wenn und aber oder Folgekosten.
                             </p>
-                            <footer class="mt-6">
-                                <p class="text-base text-blue-300">
-                                    Genauso wenig wie wir uns mit CANBUS Programmierung beschäftigen müssen, wenn wir unser Auto bei Ihnen reparieren lassen, müssen Sie sich mit Internet-Zeugs befassen - klingt gut, oder?
+                            <footer style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border-dim);">
+                                <p style="font-size:1rem;color:var(--quote-footer-text);line-height:1.68;">
+                                    Genauso wenig wie wir uns mit CANBUS Programmierung beschäftigen müssen, wenn wir unser Auto bei Ihnen reparieren lassen, müssen Sie sich mit Internet-Zeugs befassen &mdash; klingt gut, oder?
                                 </p>
                             </footer>
                         </blockquote>
@@ -552,135 +1056,151 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Next Steps Section -->
-    <section class="py-16">
+    <section class="steps-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-3 lg:gap-8">
-                <div>
-                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="text-center mb-14">
+                <p class="section-label">So funktioniert&rsquo;s</p>
+                <h2 class="section-title text-3xl sm:text-4xl">Wie geht&rsquo;s weiter?</h2>
+            </div>
+            <div class="lg:grid lg:grid-cols-3 lg:gap-8 space-y-6 lg:space-y-0">
+
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon-bubble">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                     </div>
-                    <div class="mt-5">
-                        <h3 class="text-xl font-medium text-gray-900">Klingt gut, wie geht's weiter?</h3>
-                        <p class="mt-2 text-base text-gray-600">
-                            <!--- Am besten sprechen wir kurz am Telefon (0931 / 46621340), falls spezielle Wünsche oder Erwartungen an die neue Internetseite vorliegen (von den oben aufgeführten Vorteilen abgesehen).--->
-                            Zunächst - und unabhängig, vom wem Sie Ihre Internetseite erstellen lassen, müssen Sie eigene Fotos von Ihrem Betrieb haben - eine Aussenaufnahme oder Werkstatthalle, gerne ggfs. ein Mitarbeiter-Gruppenfoto oder individuelle Fotos zu Ihren Kerndienstleistungen. Natürlich können wir auch Fotos mit AI erstellen, aber "richtige" Fotos sind immer etwas besser.
-                        </p>
-                        <p class="mt-4 text-base text-gray-600">
-                            Vielleicht haben Sie Erwartungen an zusätzliche Unterseiten oder umfangreichere Präsentationen von Auslieferungen. Fragen, die wir einfach im Vorfeld klären. Sie erreichen uns unter info@innomega.se
-                        </p>
-                    </div>
+                    <h3>Klingt gut, wie geht&rsquo;s weiter?</h3>
+                    <p>Zunächst benötigen Sie eigene Fotos von Ihrem Betrieb &mdash; eine Aussenaufnahme oder Werkstatthalle, gerne ein Mitarbeiter-Gruppenfoto. &ldquo;Richtige&rdquo; Fotos sind immer etwas besser als KI-generierte.</p>
+                    <p class="mt-3">Vielleicht haben Sie Erwartungen an zusätzliche Unterseiten. Fragen, die wir einfach im Vorfeld klären. Sie erreichen uns unter <a href="mailto:info@innomega.se" style="color:#2563eb;font-weight:600;">info@innomega.se</a></p>
                 </div>
-                
-                <div class="mt-10 lg:mt-0">
-                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon-bubble">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <div class="mt-5">
-                        <h3 class="text-xl font-medium text-gray-900">Wir übernehmen den Rest!</h3>
-                        <p class="mt-2 text-base text-gray-600">
-                            Danach schicken Sie uns die Rahmendaten zu Ihrem Betrieb (sofern anders als auf Ihrer jetzigen Webseite), sowie - wichtig - Ihre eigenen, ausgewählten Fotos - wir übernehmen den Rest!
-                        </p>
-                        <p class="mt-4 text-base text-gray-600">
-                        Hinweis: E-Mails sind wichtig - daher raten wir dazu, einen professionellen Anbieter zu nutzen wie bpspw. Microsoft 365 / Hosted Exchange. Dies ist eine separate Dienstleistung, 
-                        die Sie einfach direkt bei Microsoft online buchen können. E-Mail Postfächer sind NICHT bestandteil dieses Angebotes. 
-                        </p>
-                    </div>
+                    <h3>Wir übernehmen den Rest!</h3>
+                    <p>Danach schicken Sie uns die Rahmendaten zu Ihrem Betrieb sowie Ihre ausgewählten Fotos &mdash; wir übernehmen den Rest!</p>
+                    <p class="mt-3">E-Mail-Postfächer sind <strong>nicht</strong> Bestandteil dieses Angebotes. Für professionelle E-Mails empfehlen wir Microsoft 365 / Hosted Exchange.</p>
                 </div>
-                
-                <div class="mt-10 lg:mt-0">
-                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon-bubble">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <div class="mt-5">
-                        <h3 class="text-xl font-medium text-gray-900">Wie lange dauert das?</h3>
-                        <p class="mt-2 text-base text-gray-600">
-                            Innerhalb von drei bis vier Wochen nach Eingang Ihrer Fotos und ggfs. Textänderungen erhalten Sie Ihre neue Internetseite zur Voransicht und in Absprache regeln wir die Umstellung von Alt auf Neu.
-                        </p>
-                        <p class="mt-4 text-base text-gray-600">
-                            <strong>Wichtig:</strong> Damit wir wie geplant liefern können, sind wir auch auf Ihre "Mitarbeit" angewiesen, so dass Sie uns Informationen wie Textänderungen oder aktuelle Fotos senden können.
-                        </p>
-                    </div>
+                    <h3>Wie lange dauert das?</h3>
+                    <p>Innerhalb von drei bis vier Wochen nach Eingang Ihrer Fotos und ggfs. Textänderungen erhalten Sie Ihre neue Internetseite zur Voransicht.</p>
+                    <p class="mt-3"><strong>Wichtig:</strong> Damit wir wie geplant liefern können, sind wir auch auf Ihre &ldquo;Mitarbeit&rdquo; angewiesen &mdash; aktuelle Fotos und Textänderungen.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="kontakt" class="bg-blue-700">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                <span class="block">Bereit für Ihren digitalen Erfolg?</span>
-                <span class="block text-blue-200">Starten Sie jetzt Ihre professionelle Online-Präsenz.</span>
-            </h2>
-            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-                <div class="inline-flex rounded-md shadow">
-                    <a href="mailto:jonas.eriksson@innomega.se?subject=Angebot_ZKFonline_2025" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 transition-all duration-300">
+    <section id="kontakt" class="cta-section">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="cta-glass-overlay text-center lg:text-left lg:flex lg:items-center lg:justify-between">
+                <div>
+                    <h2 style="font-weight:800;font-size:clamp(1.65rem,4vw,2.4rem);line-height:1.2;color:#fff;">Bereit für Ihren digitalen Erfolg?</h2>
+                    <p style="font-size:1.0625rem;color:rgba(191,219,254,0.90);margin-top:0.5rem;">Starten Sie jetzt Ihre professionelle Online-Präsenz.</p>
+                </div>
+                <div style="margin-top:2rem;flex-shrink:0;" class="lg:mt-0 lg:ml-10">
+                    <a href="mailto:jonas.eriksson@innomega.se?subject=Angebot_ZKFonline_2025" class="btn-cta">
                         Kostenfreies Angebot anfordern
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
                     </a>
                 </div>
-            
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <footer class="footer-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <p class="text-gray-400 text-sm">
-                        Umfangreichere Sonderentwicklungen wie bspw. Online-Konfiguratoren für Sonderfahrzeuge, Service-Datenbanken oder umfanreichere Kartenapplikationen oder Online-Shops erfordern umfangreichere Entwicklungen als in diesem Angebot beinhaltet. Sollten Sie an komplexeren Lösungen interessiert sein, wenden Sie sich bitte an uns über unsere Haupt-Firmenwebsite, <a href="https://www.innomega.se" class="text-blue-400 hover:text-blue-300" target="_blank">www.innomega.se</a>.
+                    <p class="footer-text">
+                        Umfangreichere Sonderentwicklungen wie bspw. Online-Konfiguratoren für Sonderfahrzeuge, Service-Datenbanken oder Online-Shops erfordern umfangreichere Entwicklungen als in diesem Angebot beinhaltet. Für komplexere Lösungen wenden Sie sich bitte an <a href="https://www.innomega.se" class="footer-link" target="_blank">www.innomega.se</a>.
                     </p>
                 </div>
                 <div>
-                    <img src="images/IMAB-ZKFonline-Infoseite-AS_88010071blue-1440.jpg" class="max-h-full mx-auto md:mx-0 md:ml-auto" alt="ZKF Online Logo">
+                    <img src="images/IMAB-ZKFonline-Infoseite-AS_88010071blue-1440.jpg" class="max-h-full mx-auto md:mx-0 md:ml-auto opacity-80" alt="ZKF Online Logo">
                 </div>
             </div>
-            <div class="mt-8 border-t border-gray-800 pt-8 md:flex md:items-center md:justify-between">
-                <div class="flex space-x-6 md:order-2">
-                    <!-- Social Media Links could go here -->
-                </div>
-                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-                    &copy; 2025 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. -  Alle Rechte vorbehalten.
-                </p>
-            </div>
+            <hr class="footer-divider">
+            <p class="footer-copy">
+                &copy; 2025 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
+            </p>
         </div>
     </footer>
 
-    <!-- Mobile Menu Toggle JS -->
     <script>
-        // Simple mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const html = document.documentElement;
+            const mainNav = document.getElementById('main-nav');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
+            // --- Theme Switch ---
+            const savedTheme = localStorage.getItem('zkf-theme') || 'dark';
+            html.setAttribute('data-theme', savedTheme);
+
+            function updateThemeSwitches(theme) {
+                document.querySelectorAll('.theme-switch-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-set-theme') === theme);
+                });
+            }
+
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                localStorage.setItem('zkf-theme', theme);
+                updateThemeSwitches(theme);
+            }
+
+            updateThemeSwitches(savedTheme);
+
+            document.querySelectorAll('.theme-switch-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setTheme(btn.getAttribute('data-set-theme'));
+                });
+            });
+
+            // --- Nav scroll ---
+            if (mainNav) {
+                window.addEventListener('scroll', () => {
+                    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+                }, { passive: true });
+            }
+
+            // --- Mobile menu ---
             if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
+                mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
             }
-            
-            // Smooth scroll for anchor links
+
+            // --- Smooth scroll ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (!target) return;
                     e.preventDefault();
-                    
-                    // Close mobile menu if open
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 });
             });
         });
