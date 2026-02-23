@@ -98,65 +98,65 @@
         ============================================================ */
         [data-theme="light"] {
             --bg-page:          #ffffff;
-            --bg-section-alt:   #f8fafc;
-            --bg-section-light: #f1f5f9;
-            --bg-surface:       rgba(255,255,255,0.92);
-            --bg-surface-mid:   rgba(255,255,255,0.96);
+            --bg-section-alt:   #f4f6f8;
+            --bg-section-light: #f0f2f5;
+            --bg-surface:       rgba(255,255,255,0.96);
+            --bg-surface-mid:   #ffffff;
             --bg-surface-card:  #ffffff;
 
-            --text-primary:   #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary:  #94a3b8;
-            --text-on-card:   #0f172a;
+            --text-primary:   #111827;
+            --text-secondary: #374151;
+            --text-tertiary:  #6b7280;
+            --text-on-card:   #111827;
 
-            --border-glass:   rgba(15,23,42,0.09);
-            --border-dim:     rgba(15,23,42,0.06);
-            --border-blue:    rgba(37,99,235,0.18);
+            --border-glass:   rgba(17,24,39,0.10);
+            --border-dim:     rgba(17,24,39,0.07);
+            --border-blue:    rgba(37,99,235,0.16);
 
-            --shadow-glass:   0 4px 24px rgba(15,23,42,0.09);
-            --shadow-card:    0 2px 16px rgba(15,23,42,0.07);
-            --shadow-hover:   0 12px 40px rgba(37,99,235,0.15);
+            --shadow-glass:   0 4px 24px rgba(17,24,39,0.09);
+            --shadow-card:    0 2px 16px rgba(17,24,39,0.08);
+            --shadow-hover:   0 10px 36px rgba(37,99,235,0.14);
 
-            --nav-bg:         rgba(255,255,255,0.80);
-            --nav-bg-solid:   rgba(255,255,255,0.98);
-            --nav-border:     rgba(15,23,42,0.09);
-            --nav-link:       #475569;
-            --nav-link-hover: #0f172a;
+            --nav-bg:         rgba(255,255,255,0.85);
+            --nav-bg-solid:   #ffffff;
+            --nav-border:     rgba(17,24,39,0.09);
+            --nav-link:       #374151;
+            --nav-link-hover: #111827;
 
-            --hero-headline:  #0f172a;
-            --hero-sub:       #475569;
+            --hero-headline:  #111827;
+            --hero-sub:       #374151;
 
             --step-bg:        #ffffff;
-            --step-border:    rgba(226,232,240,0.90);
-            --step-text:      #0f172a;
-            --step-body:      #475569;
-            --steps-section:  linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            --step-border:    rgba(17,24,39,0.09);
+            --step-text:      #111827;
+            --step-body:      #374151;
+            --steps-section:  #f4f6f8;
 
-            --footer-bg:      #0f172a;
+            --footer-bg:      #111827;
             --footer-border:  rgba(255,255,255,0.08);
-            --footer-text:    rgba(148,163,184,0.80);
-            --footer-copy:    rgba(100,116,139,0.80);
+            --footer-text:    rgba(156,163,175,0.90);
+            --footer-copy:    rgba(107,114,128,0.90);
 
-            --price-info-bg:  rgba(37,99,235,0.06);
-            --price-info-border: rgba(37,99,235,0.15);
+            --price-info-bg:  rgba(37,99,235,0.05);
+            --price-info-border: rgba(37,99,235,0.14);
             --price-info-text: #1e40af;
-            --price-row-border: rgba(15,23,42,0.07);
+            --price-row-border: rgba(17,24,39,0.07);
 
             --update-bg: #ffffff;
-            --update-text: #0f172a;
+            --update-text: #111827;
             --update-sub:  #374151;
             --service-icon-color: #2563eb;
-            --quote-panel-bg: rgba(255,255,255,0.95);
-            --quote-panel-border: rgba(15,23,42,0.09);
-            --quote-text: #1e293b;
+            --quote-panel-bg: #ffffff;
+            --quote-panel-border: rgba(17,24,39,0.09);
+            --quote-text: #111827;
             --quote-footer-text: #2563eb;
-            --quote-mark-color: rgba(37,99,235,0.10);
+            --quote-mark-color: rgba(37,99,235,0.08);
         }
 
         /* ============================================================
            GLOBAL BG & TEXT
         ============================================================ */
-        html { background-color: var(--bg-page); }
+        html { background-color: var(--bg-page); scroll-padding-top: 5rem; }
         body  { background-color: var(--bg-page); color: var(--text-primary); }
 
         /* ============================================================
@@ -336,41 +336,48 @@
             transform: translateY(-1px);
         }
 
-        /* Theme Switch (Hell / Dunkel) */
-        .theme-switch {
-            display: inline-flex;
-            align-items: center;
+        [data-theme="light"] .btn-nav-cta {
+            background: #111827;
+            color: #ffffff !important;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        [data-theme="light"] .btn-nav-cta:hover {
+            background: #374151;
+            box-shadow: none;
+        }
+
+        /* Theme Toggle (icon button) */
+        .theme-toggle {
+            width: 2.25rem;
+            height: 2.25rem;
             border-radius: 9999px;
             border: 1px solid var(--border-glass);
             background: var(--bg-surface);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 0.2rem;
             flex-shrink: 0;
         }
 
-        .theme-switch-btn {
-            padding: 0.28rem 0.85rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            border-radius: 9999px;
-            transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-            white-space: nowrap;
-            line-height: 1.5;
+        .theme-toggle:hover {
+            background: rgba(37,99,235,0.12);
+            border-color: rgba(37,99,235,0.30);
+            transform: scale(1.08);
         }
 
-        .theme-switch-btn.active {
-            background: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 2px 8px rgba(37,99,235,0.35);
-        }
+        .theme-toggle svg { width: 1.1rem; height: 1.1rem; }
+
+        .icon-moon { display: block; }
+        .icon-sun  { display: none; }
+        [data-theme="light"] .icon-moon { display: none; }
+        [data-theme="light"] .icon-sun  { display: block; }
 
         /* Mobile menu */
         #mobile-menu {
@@ -403,7 +410,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding: 6rem 0 4rem;
+            padding: 9rem 0 4rem;
         }
 
         .hero-blob-1 {
@@ -673,6 +680,7 @@
            STEPS SECTION
         ============================================================ */
         .steps-section { background: var(--steps-section); padding: 5rem 0; }
+        [data-theme="light"] .steps-section { background: #f4f6f8; }
 
         .step-number {
             font-family: 'Michroma', sans-serif;
@@ -755,6 +763,12 @@
         .footer-divider { border-color: var(--footer-border); margin: 2rem 0; }
         .footer-copy { font-size: 0.8125rem; color: var(--footer-copy); }
 
+        /* Responsive grid gap fix (lg:gap-* not in compiled CSS) */
+        @media (min-width: 1024px) {
+            .section-grid-gap { column-gap: 5rem; }
+            .section-grid-gap > *:not(:first-child) { margin-top: 0 !important; }
+        }
+
         /* Smooth theme transition on everything */
         *, nav, section, footer, div, p, h1, h2, h3, h4, span, a {
             transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
@@ -778,18 +792,26 @@
                     <a href="#preis" class="nav-link">Preise</a>
                     <a href="#kontakt" class="nav-link">Kontakt</a>
                     <a href="https://www.innomega.se/" class="btn-nav-cta ml-2">Impressum</a>
-                    <div class="theme-switch ml-3" role="group" aria-label="Theme wechseln">
-                        <button class="theme-switch-btn" data-set-theme="light">Hell</button>
-                        <button class="theme-switch-btn" data-set-theme="dark">Dunkel</button>
-                    </div>
+                    <button class="theme-toggle ml-8" id="theme-toggle" title="Hell/Dunkel wechseln" aria-label="Theme wechseln">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center gap-2">
-                    <div class="theme-switch" role="group" aria-label="Theme wechseln">
-                        <button class="theme-switch-btn" data-set-theme="light">Hell</button>
-                        <button class="theme-switch-btn" data-set-theme="dark">Dunkel</button>
-                    </div>
+                    <button class="theme-toggle" id="theme-toggle-mobile" title="Hell/Dunkel" aria-label="Theme wechseln">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
                     <button type="button" style="color: var(--nav-link); background:none; border:none; cursor:pointer;" id="mobile-menu-button">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -827,7 +849,7 @@
                         Internetseiten mit Aktualisierungsservice &ldquo;all inklusive&rdquo;
                     </div>
 
-                    <h1 class="hero-headline">
+                    <h1 class="hero-headline pt-8">
                         <span class="block">Professioneller Web-Auftritt</span>
                         <span class="block accent">maßgeschneidert für Ihren KfZ- &amp; Karosseriebetrieb</span>
                     </h1>
@@ -910,7 +932,7 @@
     <!-- Pricing Section -->
     <section id="preis" class="bg-mesh-pricing py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-20 items-start">
+            <div class="lg:grid lg:grid-cols-12 items-start section-grid-gap">
 
                 <!-- Left: Pricing Card -->
                 <div class="lg:col-span-5">
@@ -960,7 +982,7 @@
                 </div>
 
                 <!-- Right: Details -->
-                <div class="mt-16 lg:mt-0 lg:col-span-7">
+                <div class="mt-20 lg:col-span-7">
                     <div class="glass-dark" style="padding:2.5rem;">
                         <h3 style="font-weight:700;font-size:1.2rem;color:var(--text-primary);margin-bottom:1.75rem;">Preisübersicht:</h3>
 
@@ -1008,7 +1030,7 @@
     <!-- Update Service Section -->
     <section class="update-section py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-20">
+            <div class="lg:grid lg:grid-cols-2 section-grid-gap">
                 <div>
                     <p class="section-label">Ihr Service-Versprechen</p>
                     <h2 class="section-title text-3xl sm:text-4xl mb-6">
@@ -1038,7 +1060,7 @@
                     </ul>
                 </div>
 
-                <div style="margin-top:3rem;" class="lg:mt-0">
+                <div style="margin-top:4rem;">
                     <div class="glass-quote-panel">
                         <span class="quote-mark" aria-hidden="true">&ldquo;</span>
                         <blockquote style="padding-top:3.25rem;">
@@ -1115,7 +1137,7 @@
                     <p style="font-size:1.0625rem;color:rgba(191,219,254,0.90);margin-top:0.5rem;">Starten Sie jetzt Ihre professionelle Online-Präsenz.</p>
                 </div>
                 <div style="margin-top:2rem;flex-shrink:0;" class="lg:mt-0 lg:ml-10">
-                    <a href="mailto:jonas.eriksson@innomega.se?subject=Angebot_ZKFonline_2025" class="btn-cta">
+                    <a href="mailto:jonas.eriksson@innomega.se?subject=Angebot_ZKFonline_2026" class="btn-cta">
                         Kostenfreies Angebot anfordern
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -1141,7 +1163,7 @@
             </div>
             <hr class="footer-divider">
             <p class="footer-copy">
-                &copy; 2025 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
+                &copy; 2026 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
             </p>
         </div>
     </footer>
@@ -1153,27 +1175,19 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // --- Theme Switch ---
+            // --- Theme Toggle ---
             const savedTheme = localStorage.getItem('zkf-theme') || 'dark';
             html.setAttribute('data-theme', savedTheme);
-
-            function updateThemeSwitches(theme) {
-                document.querySelectorAll('.theme-switch-btn').forEach(btn => {
-                    btn.classList.toggle('active', btn.getAttribute('data-set-theme') === theme);
-                });
-            }
 
             function setTheme(theme) {
                 html.setAttribute('data-theme', theme);
                 localStorage.setItem('zkf-theme', theme);
-                updateThemeSwitches(theme);
             }
 
-            updateThemeSwitches(savedTheme);
-
-            document.querySelectorAll('.theme-switch-btn').forEach(btn => {
+            document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    setTheme(btn.getAttribute('data-set-theme'));
+                    const current = html.getAttribute('data-theme');
+                    setTheme(current === 'dark' ? 'light' : 'dark');
                 });
             });
 
