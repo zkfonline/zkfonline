@@ -165,7 +165,7 @@ async function mailsSenden(f, betreff, textBody) {
     `Guten Tag ${f.name},`,
     ``,
     `vielen Dank für Ihre Anfrage. Wir haben sie erhalten und melden uns`,
-    `in der Regel innerhalb von 24 Stunden bei Ihnen, spätestens innerhalb einer Woche.`,
+    `in der Regel innerhalb von 24 Stunden bei Ihnen, spätestens nach einer Woche.`,
     ``,
     `Ihr Betreff: ${f.subject}`,
     ``,
