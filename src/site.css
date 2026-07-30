@@ -1172,3 +1172,19 @@
 .kontakt-mail { margin-top: 1rem; font-size: 1.0625rem; font-weight: 700; }
 .kontakt-mail a { color: #0369a1; text-decoration: none; }
 .kontakt-mail a:hover { text-decoration: underline; }
+
+/* Legal-text responsibility note under the tiers */
+.rechtstexte-hinweis {
+    max-width: 52rem;
+    margin: 2rem auto 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0.8rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.rechtstexte-hinweis strong { color: var(--text-primary); }
