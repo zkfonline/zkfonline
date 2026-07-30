@@ -1,0 +1,13 @@
+# Secrets — never commit. This repository is PUBLIC.
+.env
+.env.*
+!.env.example
+
+# Netlify
+.netlify/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store

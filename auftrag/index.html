@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auftragsbereich &ndash; ZKFonline</title>
+    <meta name="description" content="Geschützter Bereich für ZKFonline-Kunden: alle Angaben und Bilder für Ihre neue Internetseite bequem online hinterlegen.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../src/site.css" rel="stylesheet">
+    <link href="../src/forms.css" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           AUFTRAGSBEREICH
+        ============================================================ */
+        .gate-shell { max-width: 34rem; margin: 0 auto; padding: 4rem 1rem 6rem; }
+
+        .steps-bar {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .step-pill {
+            flex: 1 1 8rem;
+            padding: 0.55rem 0.5rem 0.6rem;
+            border-radius: 0.6rem;
+            border: 1px solid var(--quote-panel-border);
+            background: var(--bg-surface);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-align: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Solid brand azure, not --accent-text: the dark-theme accent is a light
+           sky tone and white text on it only reaches 2.1:1. */
+        .step-pill[aria-current="true"] {
+            background: #0369a1;
+            border-color: #0369a1;
+            color: #fff;
+        }
+
+        .step-pill .step-num { display: block; font-size: 0.625rem; opacity: 0.75; }
+
+        .step-panel[hidden] { display: none; }
+
+        .step-nav {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: space-between;
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--quote-panel-border);
+        }
+
+        .btn-ghost {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid var(--quote-panel-border);
+            background: none;
+            color: var(--quote-text);
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover { border-color: var(--accent-text); color: var(--accent-text); }
+        .btn-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* --- image upload --- */
+        .drop-zone {
+            border: 2px dashed var(--quote-panel-border);
+            border-radius: 1rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .drop-zone:hover, .drop-zone.is-over {
+            border-color: var(--accent-text);
+            background: rgba(3,105,161,0.05);
+        }
+
+        .drop-zone svg { width: 2rem; height: 2rem; color: var(--accent-text); margin: 0 auto 0.75rem; }
+        .drop-zone-title { font-weight: 700; color: var(--quote-text); font-size: 0.9375rem; }
+        .drop-zone-hint { font-size: 0.8125rem; color: var(--text-tertiary); margin-top: 0.35rem; }
+
+        .thumbs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .thumb {
+            position: relative;
+            border-radius: 0.6rem;
+            overflow: hidden;
+            border: 1px solid var(--quote-panel-border);
+            background: var(--bg-page);
+        }
+
+        .thumb img { width: 100%; height: 6rem; object-fit: cover; display: block; }
+        .thumb-meta { font-size: 0.6875rem; color: var(--text-tertiary); padding: 0.35rem 0.45rem; }
+
+        .thumb-remove {
+            position: absolute; top: 0.3rem; right: 0.3rem;
+            width: 1.5rem; height: 1.5rem;
+            display: flex; align-items: center; justify-content: center;
+            border: none; border-radius: 9999px;
+            background: rgba(17,24,39,0.78); color: #fff;
+            cursor: pointer; font-size: 0.85rem; line-height: 1;
+        }
+
+        .thumb-remove:hover { background: #b91c1c; }
+
+        .save-note {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .review-list { font-size: 0.9375rem; line-height: 1.7; color: var(--quote-text); }
+        .review-list dt {
+            font-family: 'Montserrat', sans-serif; font-size: 0.6875rem; font-weight: 700;
+            letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-tertiary);
+            margin-top: 0.9rem;
+        }
+        .review-list dd { margin: 0.1rem 0 0; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-glass sticky top-0 z-50" id="main-nav">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="nav-logo">ZKFonline</a>
+                <div class="flex items-center gap-2">
+                    <span class="nav-link hidden sm:inline" id="session-email"></span>
+                    <button class="theme-toggle" id="theme-toggle" title="Hell/Dunkel wechseln" aria-label="Theme wechseln">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ GATE: request a magic link ============ -->
+    <section class="gate-shell" id="gate">
+        <div class="support-eyebrow">Geschützter Auftragsbereich</div>
+        <h1 class="support-title" style="font-size:clamp(1.6rem,4vw,2.3rem);">Anmelden ohne Passwort</h1>
+        <p class="support-lead" style="font-size:1rem;">
+            Geben Sie Ihre E-Mail-Adresse ein. Sie erhalten sofort einen persönlichen Zugangslink &ndash;
+            kein Passwort, nichts zu merken. Der Link ist 7&nbsp;Tage gültig, Sie können also jederzeit
+            unterbrechen und später weitermachen.
+        </p>
+
+        <div class="support-card" style="margin-top:2rem;">
+            <form id="gate-form" novalidate>
+                <div class="field">
+                    <label class="field-label" for="gate-email">Ihre E-Mail-Adresse <span class="req">*</span></label>
+                    <input class="field-input" type="email" id="gate-email" autocomplete="email" required maxlength="254">
+                </div>
+                <button type="submit" class="btn-submit" id="gate-btn">
+                    <span id="gate-label">Zugangslink anfordern</span>
+                </button>
+                <div class="form-status is-error" id="gate-status" hidden role="alert"></div>
+            </form>
+
+            <div class="success-panel" id="gate-sent" hidden>
+                <div class="success-icon">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h2 class="success-title">E-Mail ist unterwegs</h2>
+                <p class="success-text">
+                    Falls für diese Adresse ein Zugang möglich ist, haben wir Ihnen soeben einen
+                    Link geschickt. Bitte prüfen Sie auch den Spam-Ordner.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FORM: the actual intake ============ -->
+    <section class="support-shell" id="auftrag" hidden style="padding-top:3rem;">
+        <div class="support-eyebrow">Angaben für Ihre neue Internetseite</div>
+        <h1 class="support-title" style="font-size:clamp(1.6rem,4vw,2.3rem);">Ihr Auftrag</h1>
+        <p class="support-lead" style="font-size:1rem;">
+            Alles, was wir zum Start brauchen. Ihre Eingaben werden automatisch in diesem Browser
+            zwischengespeichert &ndash; Sie können die Seite jederzeit schließen und später weitermachen.
+        </p>
+
+        <div class="support-card" style="margin-top:2rem;">
+            <div class="steps-bar" role="tablist">
+                <button type="button" class="step-pill" data-step="0" role="tab"><span class="step-num">Schritt 1</span>Betrieb</button>
+                <button type="button" class="step-pill" data-step="1" role="tab"><span class="step-num">Schritt 2</span>Inhalte</button>
+                <button type="button" class="step-pill" data-step="2" role="tab"><span class="step-num">Schritt 3</span>Bilder</button>
+                <button type="button" class="step-pill" data-step="3" role="tab"><span class="step-num">Schritt 4</span>Prüfen</button>
+            </div>
+
+            <form id="auftrag-form" novalidate>
+                <div class="hp-field" aria-hidden="true">
+                    <label>Bitte nicht ausfüllen<input type="text" id="hp-website" tabindex="-1" autocomplete="off"></label>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step-panel" data-panel="0">
+                    <div class="field-grid">
+                        <div class="field">
+                            <label class="field-label" for="firma">Firma <span class="req">*</span></label>
+                            <input class="field-input" type="text" id="firma" autocomplete="organization" maxlength="200">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="inhaber">Inhaber / Geschäftsführer <span class="req">*</span></label>
+                            <input class="field-input" type="text" id="inhaber" autocomplete="name" maxlength="200">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="strasse">Straße &amp; Hausnummer</label>
+                            <input class="field-input" type="text" id="strasse" autocomplete="street-address" maxlength="200">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="plz">PLZ</label>
+                            <input class="field-input" type="text" id="plz" autocomplete="postal-code" maxlength="20">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="ort">Ort <span class="req">*</span></label>
+                            <input class="field-input" type="text" id="ort" autocomplete="address-level2" maxlength="120">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="telefon">Telefon <span class="req">*</span></label>
+                            <input class="field-input" type="tel" id="telefon" autocomplete="tel" maxlength="60">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="fax">Fax <span class="opt">(optional)</span></label>
+                            <input class="field-input" type="tel" id="fax" maxlength="60">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="email">E-Mail für die Seite</label>
+                            <input class="field-input" type="email" id="email" autocomplete="email" maxlength="254">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="wunschdomain">Wunsch-Domain</label>
+                            <input class="field-input" type="text" id="wunschdomain" placeholder="z. B. www.ihre-firma.de" maxlength="200">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="bestehendeDomain">Bestehende Domain <span class="opt">(falls vorhanden)</span></label>
+                            <input class="field-input" type="text" id="bestehendeDomain" maxlength="200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-panel" data-panel="1" hidden>
+                    <div class="field">
+                        <label class="field-label" for="leistungen">Ihre Leistungen <span class="req">*</span></label>
+                        <textarea class="field-textarea" id="leistungen" maxlength="3000" placeholder="z. B. Unfallinstandsetzung, Lackierung, Achsvermessung, Glasreparatur, Abschleppdienst …"></textarea>
+                        <p class="field-hint">Eine Leistung pro Zeile genügt &ndash; die Formulierung übernehmen wir.</p>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="oeffnungszeiten">Öffnungszeiten</label>
+                        <textarea class="field-textarea" id="oeffnungszeiten" maxlength="1000" style="min-height:6rem;" placeholder="Mo–Fr 07:30–17:00&#10;Sa nach Vereinbarung"></textarea>
+                    </div>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label class="field-label" for="mitarbeiter">Mitarbeiterzahl <span class="opt">(optional)</span></label>
+                            <input class="field-input" type="text" id="mitarbeiter" maxlength="60">
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="gruendung">Gegründet <span class="opt">(optional)</span></label>
+                            <input class="field-input" type="text" id="gruendung" maxlength="60">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="marken">Marken / Partnerschaften <span class="opt">(optional)</span></label>
+                        <input class="field-input" type="text" id="marken" maxlength="1000" placeholder="z. B. Eurogarant, ZKF, Herstellerfreigaben">
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="notdienst">Notdienst / Abschleppdienst <span class="opt">(optional)</span></label>
+                        <input class="field-input" type="text" id="notdienst" maxlength="200">
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="ueberUns">Über Ihren Betrieb</label>
+                        <textarea class="field-textarea" id="ueberUns" maxlength="4000" placeholder="Was zeichnet Ihren Betrieb aus? Ein paar Stichpunkte reichen."></textarea>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="zusatzWuensche">Zusätzliche Wünsche <span class="opt">(optional)</span></label>
+                        <textarea class="field-textarea" id="zusatzWuensche" maxlength="4000" style="min-height:6rem;" placeholder="Weitere Unterseiten, Besonderheiten, Vorbilder die Ihnen gefallen …"></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-panel" data-panel="2" hidden>
+                    <p class="support-lead" style="margin-top:0;font-size:0.9375rem;">
+                        Eigene Fotos wirken immer besser als KI-Bilder: eine Außenaufnahme, die Werkstatthalle,
+                        gerne ein Mitarbeiter-Gruppenfoto und Ihr Logo. Große Bilder werden automatisch
+                        verkleinert &ndash; Sie müssen nichts vorbereiten.
+                    </p>
+
+                    <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Bilder auswählen">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.9A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3-3m0 0l3 3m-3-3v12"/>
+                        </svg>
+                        <div class="drop-zone-title">Bilder hierher ziehen oder klicken</div>
+                        <div class="drop-zone-hint">JPG, PNG oder WebP &middot; bis zu 10 Bilder</div>
+                        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple hidden>
+                    </div>
+
+                    <div class="thumbs" id="thumbs"></div>
+                    <div class="form-status is-error" id="bild-status" hidden role="alert"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-panel" data-panel="3" hidden>
+                    <dl class="review-list" id="review"></dl>
+                    <div class="field" style="margin-top:1.75rem;">
+                        <label class="check-row">
+                            <input type="checkbox" id="datenschutz" required>
+                            <span>Ich bin damit einverstanden, dass meine Angaben und Bilder zur Erstellung
+                            meiner Internetseite gespeichert und verarbeitet werden. <span class="req">*</span></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submit-btn">
+                        <span id="submit-label">Auftrag verbindlich übermitteln</span>
+                    </button>
+                    <div class="form-status is-error" id="form-status" hidden role="alert"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button type="button" class="btn-ghost" id="prev-btn" disabled>Zurück</button>
+                    <button type="button" class="btn-ghost" id="next-btn">Weiter</button>
+                </div>
+            </form>
+
+            <div class="save-note" id="save-note">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:0.9rem;height:0.9rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>Automatisch zwischengespeichert</span>
+            </div>
+        </div>
+
+        <div class="success-panel" id="done-panel" hidden style="margin-top:2rem;">
+            <div class="success-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h2 class="success-title">Auftrag übermittelt &ndash; vielen Dank!</h2>
+            <p class="success-text">
+                Wir haben Ihre Angaben und Bilder erhalten und melden uns mit einem ersten Entwurf.
+                Eine Bestätigung ist per E-Mail unterwegs.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <hr class="footer-divider" style="margin-top:0;">
+            <p class="footer-copy">
+                &copy; 2026 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../src/site.js"></script>
+    <script src="../src/auftrag.js"></script>
+</body>
+</html>

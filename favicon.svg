@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ZKFonline">
+  <defs>
+    <linearGradient id="zkf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#080e27"/>
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="url(#zkf)"/>
+  <path d="M18 20h28l-19 24h19" fill="none" stroke="#fff" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

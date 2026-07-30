@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support-Formular &ndash; ZKFonline</title>
+    <meta name="author" content="ZKFonline">
+    <meta name="description" content="Support-Formular für ZKFonline-Kunden: Änderungswünsche, technische Probleme und Fragen zu Ihrer Internetseite direkt an unser Support-Team.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.zkfonline.de/support/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="ZKFonline">
+    <meta property="og:title" content="Support-Formular – ZKFonline">
+    <meta property="og:description" content="Änderungswünsche, technische Probleme und Fragen zu Ihrer Internetseite – direkt an unser Support-Team.">
+    <meta property="og:url" content="https://www.zkfonline.de/support/">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../src/site.css" rel="stylesheet">
+
+    <link href="../src/forms.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-glass sticky top-0 z-50" id="main-nav">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="nav-logo">ZKFonline</a>
+
+                <div class="hidden md:flex items-center space-x-1 ml-10">
+                    <a href="/#vorteile" class="nav-link">Vorteile</a>
+                    <a href="/#preis" class="nav-link">Preise</a>
+                    <a href="/#kontakt" class="nav-link">Kontakt</a>
+                    <a href="https://www.innomega.se/" class="nav-link">Impressum</a>
+                    <a href="/support/" class="btn-nav-cta ml-2">Support</a>
+                    <button class="theme-toggle ml-8" id="theme-toggle" title="Hell/Dunkel wechseln" aria-label="Theme wechseln">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <button class="theme-toggle" id="theme-toggle-mobile" title="Hell/Dunkel" aria-label="Theme wechseln">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    <button type="button" style="color: var(--nav-link); background:none; border:none; cursor:pointer;" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hidden md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="/#vorteile">Vorteile</a>
+                    <a href="/#preis">Preise</a>
+                    <a href="/#kontakt">Kontakt</a>
+                    <a href="/support/">Support</a>
+                    <a href="https://www.innomega.se/impressum/">Impressum</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="support-hero bg-mesh-hero">
+        <div class="hero-blob-1" aria-hidden="true"></div>
+        <div class="support-shell" style="padding-bottom:0;position:relative;z-index:10;">
+            <div class="support-eyebrow">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 010 12.728m-12.728 0a9 9 0 010-12.728m9.9 9.9a5 5 0 010-7.072m-7.072 0a5 5 0 010 7.072M13 12a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+                Support für ZKFonline-Kunden
+            </div>
+            <h1 class="support-title">Wie können wir helfen?</h1>
+            <p class="support-lead">
+                Änderungswünsche an Ihrer Internetseite, ein technisches Problem oder eine Frage zu
+                Domain und E-Mail? Schreiben Sie uns über dieses Formular &ndash; Ihre Anfrage landet
+                direkt und nachverfolgbar bei unserem Support-Team. Sie erhalten sofort eine
+                Empfangsbestätigung per E-Mail.
+            </p>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="support-shell" style="padding-top:2.5rem;">
+        <div class="support-card">
+
+            <form id="support-form" novalidate>
+                <!-- Honeypot: hidden from users, tempting for bots -->
+                <div class="hp-field" aria-hidden="true">
+                    <label>Bitte nicht ausfüllen
+                        <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
+
+                <div class="field-grid">
+                    <div class="field">
+                        <label class="field-label" for="company">Firma <span class="req">*</span></label>
+                        <input class="field-input" type="text" id="company" name="company" autocomplete="organization" required maxlength="200">
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="name">Ihr Name <span class="req">*</span></label>
+                        <input class="field-input" type="text" id="name" name="name" autocomplete="name" required maxlength="120">
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="email">E-Mail <span class="req">*</span></label>
+                        <input class="field-input" type="email" id="email" name="email" autocomplete="email" required maxlength="254">
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="phone">Telefon <span class="opt">(optional)</span></label>
+                        <input class="field-input" type="tel" id="phone" name="phone" autocomplete="tel" maxlength="60">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="domain">Ihre Internetseite <span class="opt">(optional)</span></label>
+                    <input class="field-input" type="text" id="domain" name="domain" placeholder="z. B. www.ihre-firma.de" maxlength="200">
+                    <p class="field-hint">Hilft uns, Ihre Anfrage sofort dem richtigen Projekt zuzuordnen.</p>
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="kategorie">Worum geht es?</label>
+                    <select class="field-select" id="kategorie" name="kategorie">
+                        <option value="inhalt">Inhaltsänderung (Texte, Bilder, Öffnungszeiten)</option>
+                        <option value="technik">Technisches Problem</option>
+                        <option value="unterseite">Neue Unterseite / Erweiterung</option>
+                        <option value="domain">Domain / E-Mail</option>
+                        <option value="sonstiges">Sonstiges</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="subject">Betreff <span class="req">*</span></label>
+                    <input class="field-input" type="text" id="subject" name="subject" required maxlength="200">
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="message">Ihre Nachricht <span class="req">*</span></label>
+                    <textarea class="field-textarea" id="message" name="message" required maxlength="8000"></textarea>
+                    <p class="field-hint">Je konkreter, desto schneller &ndash; z.&nbsp;B. auf welcher Seite und was genau geändert werden soll.</p>
+                </div>
+
+                <div class="field">
+                    <label class="check-row">
+                        <input type="checkbox" id="dringend" name="dringend">
+                        <span>Dringend &ndash; die Internetseite ist nicht erreichbar oder fehlerhaft.</span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label class="check-row">
+                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                        <span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
+                        Anfrage gespeichert und verarbeitet werden. <span class="req">*</span></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submit-btn">
+                    <span id="submit-label">Anfrage absenden</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:1.1rem;height:1.1rem;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <div class="form-status is-error" id="form-status" hidden role="alert"></div>
+            </form>
+
+            <div class="success-panel" id="success-panel" hidden>
+                <div class="success-icon">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h2 class="success-title">Vielen Dank &ndash; Ihre Anfrage ist eingegangen.</h2>
+                <p class="success-text">
+                    Wir haben Ihnen eine Empfangsbestätigung per E-Mail geschickt und melden uns in
+                    der Regel innerhalb eines Werktages bei Ihnen. Bei dringenden Störungen erreichen
+                    Sie uns zusätzlich telefonisch.
+                </p>
+            </div>
+        </div>
+
+        <div class="alt-grid">
+            <div class="alt-card">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <div>
+                    <div class="alt-title">Lieber per E-Mail?</div>
+                    <div class="alt-body">
+                        Schreiben Sie an <a href="mailto:support@innomega.de">support@innomega.de</a> &ndash;
+                        auch diese Nachrichten landen in derselben Support-Übersicht.
+                    </div>
+                </div>
+            </div>
+            <div class="alt-card">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                    <div class="alt-title">Bearbeitungszeit</div>
+                    <div class="alt-body">
+                        Anfragen werden werktags bearbeitet, in der Regel innerhalb eines Werktages.
+                        Als dringend markierte Störungen priorisieren wir.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <hr class="footer-divider" style="margin-top:0;">
+            <p class="footer-copy">
+                &copy; 2026 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../src/site.js"></script>
+    <script>
+        (function () {
+            var form = document.getElementById('support-form');
+            var statusBox = document.getElementById('form-status');
+            var btn = document.getElementById('submit-btn');
+            var label = document.getElementById('submit-label');
+            var successPanel = document.getElementById('success-panel');
+
+            var PFLICHT = ['company', 'name', 'email', 'subject', 'message'];
+
+            function zeigeFehler(text) {
+                statusBox.textContent = text;
+                statusBox.hidden = false;
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                statusBox.hidden = true;
+
+                PFLICHT.forEach(function (id) {
+                    document.getElementById(id).removeAttribute('aria-invalid');
+                });
+
+                var fehlend = PFLICHT.filter(function (id) {
+                    return !document.getElementById(id).value.trim();
+                });
+
+                if (fehlend.length) {
+                    fehlend.forEach(function (id) {
+                        document.getElementById(id).setAttribute('aria-invalid', 'true');
+                    });
+                    document.getElementById(fehlend[0]).focus();
+                    zeigeFehler('Bitte füllen Sie alle Pflichtfelder aus.');
+                    return;
+                }
+
+                var email = document.getElementById('email');
+                if (!/^[^\s@]+@[^\s@.]+\.[^\s@]{2,}$/.test(email.value.trim())) {
+                    email.setAttribute('aria-invalid', 'true');
+                    email.focus();
+                    zeigeFehler('Bitte prüfen Sie Ihre E-Mail-Adresse.');
+                    return;
+                }
+
+                if (!document.getElementById('datenschutz').checked) {
+                    zeigeFehler('Bitte bestätigen Sie die Verarbeitung Ihrer Angaben.');
+                    return;
+                }
+
+                btn.disabled = true;
+                label.textContent = 'Wird gesendet …';
+
+                try {
+                    var res = await fetch('/api/support', {
+                        method: 'POST',
+                        headers: { 'content-type': 'application/json' },
+                        body: JSON.stringify({
+                            company: document.getElementById('company').value,
+                            name: document.getElementById('name').value,
+                            email: email.value,
+                            phone: document.getElementById('phone').value,
+                            domain: document.getElementById('domain').value,
+                            kategorie: document.getElementById('kategorie').value,
+                            subject: document.getElementById('subject').value,
+                            message: document.getElementById('message').value,
+                            dringend: document.getElementById('dringend').checked,
+                            website: document.getElementById('hp-website').value
+                        })
+                    });
+
+                    var daten = {};
+                    try { daten = await res.json(); } catch (err) {}
+
+                    if (res.ok && daten.ok) {
+                        form.hidden = true;
+                        successPanel.hidden = false;
+                        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+
+                    zeigeFehler(
+                        'Ihre Anfrage konnte nicht übermittelt werden. Bitte versuchen Sie es in ' +
+                        'einigen Minuten erneut oder schreiben Sie uns an support@innomega.de.'
+                    );
+                } catch (err) {
+                    zeigeFehler(
+                        'Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung ' +
+                        'oder schreiben Sie uns an support@innomega.de.'
+                    );
+                } finally {
+                    btn.disabled = false;
+                    label.textContent = 'Anfrage absenden';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

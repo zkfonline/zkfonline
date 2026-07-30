@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth" data-theme="dark">
+<html lang="de" class="scroll-smooth" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,8 @@
     <meta name="description" content="Professionelle Internetseiten mit Aktualisierungsservice für KfZ- und Nutzfahrzeugservice & Karosseriebau zum Festpreis">
     <meta name="keywords" content="ZKFonline, Internetseiten, KfZ-Service, Nutzfahrzeugservice, Karosseriebau, Webdesign, Aktualisierungsservice">
 
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
@@ -17,767 +19,43 @@
     <link href="src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* ============================================================
-           FONTS & BASE
-        ============================================================ */
-        .michroma { font-family: 'Michroma', sans-serif; letter-spacing: 0.08em; }
-
-        *, *::before, *::after { box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        /* ============================================================
-           DARK THEME (default)
-        ============================================================ */
-        :root,
-        [data-theme="dark"] {
-            --bg-page:          #080e27;
-            --bg-section-alt:   #050c1e;
-            --bg-section-light: #0a1035;
-            --bg-surface:       rgba(255,255,255,0.06);
-            --bg-surface-mid:   rgba(15,28,80,0.58);
-            --bg-surface-card:  #ffffff;
-
-            --text-primary:   #f1f5f9;
-            --text-secondary: rgba(148,163,184,0.88);
-            --text-tertiary:  rgba(100,116,139,0.80);
-            --text-on-card:   #0f172a;
-
-            --border-glass:   rgba(255,255,255,0.12);
-            --border-dim:     rgba(255,255,255,0.07);
-            --border-blue:    rgba(96,165,250,0.18);
-
-            --shadow-glass:   0 8px 40px rgba(0,0,0,0.45);
-            --shadow-card:    0 4px 24px rgba(0,0,0,0.06);
-            --shadow-hover:   0 14px 44px rgba(37,99,235,0.13);
-
-            --nav-bg:         rgba(8,14,39,0.72);
-            --nav-bg-solid:   rgba(8,14,39,0.95);
-            --nav-border:     rgba(255,255,255,0.07);
-            --nav-link:       rgba(226,232,240,0.70);
-            --nav-link-hover: #ffffff;
-
-            --hero-headline:  #ffffff;
-            --hero-sub:       rgba(226,232,240,0.88);
-
-            --step-bg:        #ffffff;
-            --step-border:    rgba(226,232,240,0.75);
-            --step-text:      #0f172a;
-            --step-body:      #475569;
-            --steps-section:  linear-gradient(180deg, #f1f5f9 0%, #ffffff 50%, #f8fafc 100%);
-
-            --footer-bg:      #020710;
-            --footer-border:  rgba(255,255,255,0.055);
-            --footer-text:    rgba(148,163,184,0.68);
-            --footer-copy:    rgba(100,116,139,0.78);
-
-            --price-info-bg:  rgba(37,99,235,0.11);
-            --price-info-border: rgba(96,165,250,0.18);
-            --price-info-text: rgba(147,197,253,0.88);
-            --price-row-border: rgba(255,255,255,0.06);
-
-            --update-bg: linear-gradient(180deg, #050c1e 0%, #0f1f5c 50%, #050c1e 100%);
-            --update-text: rgba(226,232,240,0.88);
-            --update-sub:  rgba(148,163,184,0.84);
-            --service-icon-color: #60a5fa;
-            --quote-panel-bg: rgba(255,255,255,0.05);
-            --quote-panel-border: rgba(255,255,255,0.09);
-            --quote-text: rgba(226,232,240,0.90);
-            --quote-footer-text: #60a5fa;
-            --quote-mark-color: rgba(96,165,250,0.15);
-        }
-
-        /* ============================================================
-           LIGHT THEME
-        ============================================================ */
-        [data-theme="light"] {
-            --bg-page:          #ffffff;
-            --bg-section-alt:   #f4f6f8;
-            --bg-section-light: #f0f2f5;
-            --bg-surface:       rgba(255,255,255,0.96);
-            --bg-surface-mid:   #ffffff;
-            --bg-surface-card:  #ffffff;
-
-            --text-primary:   #111827;
-            --text-secondary: #374151;
-            --text-tertiary:  #6b7280;
-            --text-on-card:   #111827;
-
-            --border-glass:   rgba(17,24,39,0.10);
-            --border-dim:     rgba(17,24,39,0.07);
-            --border-blue:    rgba(37,99,235,0.16);
-
-            --shadow-glass:   0 4px 24px rgba(17,24,39,0.09);
-            --shadow-card:    0 2px 16px rgba(17,24,39,0.08);
-            --shadow-hover:   0 10px 36px rgba(37,99,235,0.14);
-
-            --nav-bg:         rgba(255,255,255,0.85);
-            --nav-bg-solid:   #ffffff;
-            --nav-border:     rgba(17,24,39,0.09);
-            --nav-link:       #374151;
-            --nav-link-hover: #111827;
-
-            --hero-headline:  #111827;
-            --hero-sub:       #374151;
-
-            --step-bg:        #ffffff;
-            --step-border:    rgba(17,24,39,0.09);
-            --step-text:      #111827;
-            --step-body:      #374151;
-            --steps-section:  #f4f6f8;
-
-            --footer-bg:      #111827;
-            --footer-border:  rgba(255,255,255,0.08);
-            --footer-text:    rgba(156,163,175,0.90);
-            --footer-copy:    rgba(107,114,128,0.90);
-
-            --price-info-bg:  rgba(37,99,235,0.05);
-            --price-info-border: rgba(37,99,235,0.14);
-            --price-info-text: #1e40af;
-            --price-row-border: rgba(17,24,39,0.07);
-
-            --update-bg: #ffffff;
-            --update-text: #111827;
-            --update-sub:  #374151;
-            --service-icon-color: #2563eb;
-            --quote-panel-bg: #ffffff;
-            --quote-panel-border: rgba(17,24,39,0.09);
-            --quote-text: #111827;
-            --quote-footer-text: #2563eb;
-            --quote-mark-color: rgba(37,99,235,0.08);
-        }
-
-        /* ============================================================
-           GLOBAL BG & TEXT
-        ============================================================ */
-        html { background-color: var(--bg-page); scroll-padding-top: 5rem; }
-        body  { background-color: var(--bg-page); color: var(--text-primary); }
-
-        /* ============================================================
-           HERO MESH BACKGROUNDS
-        ============================================================ */
-        [data-theme="dark"] .bg-mesh-hero {
-            background-color: #080e27;
-            background-image:
-                radial-gradient(ellipse 80% 60% at 15% 15%, rgba(37,99,235,0.28) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 50% at 85% 85%, rgba(15,31,92,0.60) 0%, transparent 65%);
-        }
-
-        [data-theme="light"] .bg-mesh-hero {
-            background-color: #ffffff;
-            background-image:
-                radial-gradient(ellipse 70% 50% at 10% 0%, rgba(3,105,161,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 90% 90%, rgba(219,234,254,0.35) 0%, transparent 65%);
-        }
-
-        [data-theme="dark"] .bg-mesh-pricing {
-            background-color: #050c1e;
-            background-image:
-                radial-gradient(ellipse 70% 55% at 8% 85%, rgba(37,99,235,0.22) 0%, transparent 60%),
-                radial-gradient(ellipse 55% 65% at 92% 10%, rgba(15,31,92,0.45) 0%, transparent 60%);
-        }
-
-        [data-theme="light"] .bg-mesh-pricing {
-            background-color: #f4f6f8;
-            background-image: none;
-        }
-
-        /* ============================================================
-           GLASSMORPHISM COMPONENTS
-        ============================================================ */
-        .glass-dark {
-            background: var(--bg-surface);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border: 1px solid var(--border-glass);
-            border-radius: 1.25rem;
-            box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255,255,255,0.09);
-        }
-
-        .glass-hero-panel {
-            background: var(--bg-surface);
-            backdrop-filter: blur(26px);
-            -webkit-backdrop-filter: blur(26px);
-            border: 1px solid var(--border-glass);
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-
-        [data-theme="light"] .glass-hero-panel {
-            background: #ffffff;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid rgba(15,23,42,0.09);
-            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
-        }
-
-        .glass-pricing-card {
-            background: var(--bg-surface-mid);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border: 1px solid var(--border-blue);
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(37,99,235,0.10), 0 28px 70px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.09);
-        }
-
-        [data-theme="light"] .glass-pricing-card {
-            background: #ffffff;
-            border: 1px solid rgba(37,99,235,0.14);
-            box-shadow: 0 4px 32px rgba(15,23,42,0.10);
-        }
-
-        .glass-pricing-features {
-            background: rgba(4,8,22,0.45);
-            border-top: 1px solid rgba(96,165,250,0.11);
-        }
-
-        [data-theme="light"] .glass-pricing-features {
-            background: #f8fafc;
-            border-top: 1px solid rgba(37,99,235,0.10);
-        }
-
-        [data-theme="light"] .glass-dark {
-            background: #ffffff;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid rgba(15,23,42,0.09);
-            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
-        }
-
-        [data-theme="light"] .glass-quote-panel {
-            background: #ffffff;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid rgba(15,23,42,0.09);
-            box-shadow: 0 2px 20px rgba(15,23,42,0.07);
-        }
-
-        .glass-quote-panel {
-            background: var(--quote-panel-bg);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1px solid var(--quote-panel-border);
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow-glass);
-            padding: 2.5rem;
-            position: relative;
-        }
-
-        /* ============================================================
-           NAVIGATION
-        ============================================================ */
-        .nav-glass {
-            background: var(--nav-bg);
-            backdrop-filter: blur(22px) saturate(1.5);
-            -webkit-backdrop-filter: blur(22px) saturate(1.5);
-            border-bottom: 1px solid var(--nav-border);
-            box-shadow: 0 1px 24px rgba(0,0,0,0.15);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .nav-glass.scrolled {
-            background: var(--nav-bg-solid);
-            box-shadow: 0 2px 32px rgba(0,0,0,0.20);
-        }
-
-        .nav-logo {
-            font-family: 'Michroma', sans-serif;
-            font-size: 1.15rem;
-            letter-spacing: 0.12em;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        [data-theme="dark"] .nav-logo { text-shadow: 0 0 24px rgba(96,165,250,0.40); }
-
-        .nav-link {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            color: var(--nav-link);
-            padding: 0.4rem 0.9rem;
-            border-radius: 9999px;
-            transition: color 0.25s ease, background 0.25s ease;
-            text-decoration: none;
-        }
-
-        .nav-link:hover {
-            color: var(--nav-link-hover);
-            background: rgba(37,99,235,0.08);
-        }
-
-        .btn-nav-cta {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            padding: 0.5rem 1.25rem;
-            border-radius: 9999px;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: #fff;
-            border: 1px solid rgba(96,165,250,0.25);
-            box-shadow: 0 0 16px rgba(37,99,235,0.30);
-            transition: all 0.25s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-nav-cta:hover {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            box-shadow: 0 0 26px rgba(37,99,235,0.55);
-            transform: translateY(-1px);
-        }
-
-        [data-theme="light"] .btn-nav-cta {
-            background: #111827;
-            color: #ffffff !important;
-            border-color: transparent;
-            box-shadow: none;
-        }
-
-        [data-theme="light"] .btn-nav-cta:hover {
-            background: #374151;
-            box-shadow: none;
-        }
-
-        /* Theme Toggle (icon button) */
-        .theme-toggle {
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: 9999px;
-            border: 1px solid var(--border-glass);
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            flex-shrink: 0;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(37,99,235,0.12);
-            border-color: rgba(37,99,235,0.30);
-            transform: scale(1.08);
-        }
-
-        .theme-toggle svg { width: 1.1rem; height: 1.1rem; }
-
-        .icon-moon { display: block; }
-        .icon-sun  { display: none; }
-        [data-theme="light"] .icon-moon { display: none; }
-        [data-theme="light"] .icon-sun  { display: block; }
-
-        /* Mobile menu */
-        #mobile-menu {
-            background: var(--nav-bg-solid);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border-top: 1px solid var(--nav-border);
-        }
-
-        #mobile-menu a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9375rem;
-            font-weight: 500;
-            color: var(--nav-link);
-            padding: 0.65rem 1rem;
-            border-radius: 0.75rem;
-            display: block;
-            transition: color 0.25s, background 0.25s;
-            text-decoration: none;
-        }
-
-        #mobile-menu a:hover { color: var(--nav-link-hover); background: rgba(37,99,235,0.08); }
-
-        /* ============================================================
-           HERO
-        ============================================================ */
-        .hero-section {
-            min-height: 92vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding: 9rem 0 4rem;
-        }
-
-        .hero-blob-1 {
-            position: absolute; top: -12%; right: -4%;
-            width: 58%; height: 72%;
-            background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 68%);
-            pointer-events: none; z-index: 0;
-        }
-
-        .hero-blob-2 {
-            position: absolute; bottom: -18%; left: -6%;
-            width: 48%; height: 64%;
-            background: radial-gradient(ellipse, rgba(96,165,250,0.08) 0%, transparent 68%);
-            pointer-events: none; z-index: 0;
-        }
-
-        [data-theme="light"] .hero-blob-1 {
-            background: radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 68%);
-        }
-        [data-theme="light"] .hero-blob-2 {
-            background: radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 68%);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            background: rgba(37,99,235,0.14);
-            border: 1px solid rgba(96,165,250,0.26);
-            color: #93c5fd;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            backdrop-filter: blur(8px);
-            margin-bottom: 1.5rem;
-        }
-
-        [data-theme="light"] .hero-badge {
-            background: rgba(37,99,235,0.08);
-            border-color: rgba(37,99,235,0.22);
-            color: #1d4ed8;
-        }
-
-        .hero-headline {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: clamp(2.1rem, 4.5vw, 3.5rem);
-            line-height: 1.1;
-            letter-spacing: -0.025em;
-            color: var(--hero-headline);
-            margin-bottom: 2rem;
-        }
-
-        .hero-headline .accent {
-            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 60%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        [data-theme="light"] .hero-headline .accent {
-            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
-        .benefit-check {
-            width: 1.375rem; height: 1.375rem;
-            color: #34d399;
-            flex-shrink: 0;
-            filter: drop-shadow(0 0 5px rgba(52,211,153,0.45));
-        }
-
-        [data-theme="light"] .benefit-check { filter: none; color: #059669; }
-
-        .benefit-text {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .hero-hinweis {
-            margin-top: 1.5rem;
-            padding: 0.9rem 1.1rem;
-            border-radius: 0.875rem;
-            background: rgba(37,99,235,0.08);
-            border: 1px solid rgba(96,165,250,0.14);
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.68;
-        }
-
-        [data-theme="light"] .hero-hinweis {
-            background: rgba(37,99,235,0.05);
-            border-color: rgba(37,99,235,0.12);
-        }
-
-        .btn-hero {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.625rem;
-            padding: 0.9rem 2.1rem;
-            border-radius: 9999px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 0.02em;
-            color: #fff;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e3a8a 100%);
-            border: 1px solid rgba(96,165,250,0.22);
-            box-shadow: 0 4px 22px rgba(37,99,235,0.40);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-hero:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 34px rgba(37,99,235,0.60);
-        }
-
-        .hero-image-wrapper {
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 28px 80px rgba(0,0,0,0.50);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        [data-theme="light"] .hero-image-wrapper {
-            box-shadow: 0 12px 48px rgba(15,23,42,0.18);
-        }
-
-        .hero-image-wrapper:hover {
-            transform: translateY(-5px) scale(1.012);
-            box-shadow: 0 36px 100px rgba(0,0,0,0.55), 0 0 40px rgba(37,99,235,0.18);
-        }
-
-        .hero-image-wrapper img { display: block; width: 100%; border-radius: 1.5rem; }
-
-        @keyframes float-hero {
-            0%, 100% { transform: translateY(0px); }
-            40%       { transform: translateY(-9px); }
-            70%       { transform: translateY(-4px); }
-        }
-        .animate-float-hero { animation: float-hero 7s ease-in-out infinite; }
-
-        /* ============================================================
-           LABELS & TITLES
-        ============================================================ */
-        .section-label {
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #2563eb;
-            margin-bottom: 0.875rem;
-        }
-
-        [data-theme="dark"] .section-label { color: #60a5fa; }
-
-        .section-title { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; color: var(--text-primary); }
-
-        /* ============================================================
-           PRICING
-        ============================================================ */
-        .pricing-amount {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 1.2;
-        }
-
-        [data-theme="dark"] .pricing-amount { color: #fff; }
-        [data-theme="light"] .pricing-amount { color: #0f172a; }
-
-        .badge-popular {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.22rem 0.8rem;
-            border-radius: 9999px;
-            background: rgba(37,99,235,0.14);
-            border: 1px solid rgba(37,99,235,0.28);
-            color: #2563eb;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        [data-theme="dark"] .badge-popular { background: rgba(96,165,250,0.14); border-color: rgba(96,165,250,0.30); color: #93c5fd; }
-
-        .btn-pricing {
-            display: flex; align-items: center; justify-content: center;
-            padding: 0.9rem 1.5rem; border-radius: 9999px;
-            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem;
-            background: #fff; color: #1e3a8a;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.16);
-            transition: all 0.25s ease; text-decoration: none;
-        }
-
-        [data-theme="light"] .btn-pricing { background: #2563eb; color: #fff; box-shadow: 0 4px 16px rgba(37,99,235,0.35); }
-        .btn-pricing:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(0,0,0,0.22); }
-        [data-theme="light"] .btn-pricing:hover { background: #1d4ed8; box-shadow: 0 8px 26px rgba(37,99,235,0.45); }
-
-        .btn-pricing-secondary {
-            display: flex; align-items: center; justify-content: center;
-            padding: 0.9rem 1.5rem; border-radius: 9999px;
-            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: #fff; box-shadow: 0 4px 20px rgba(37,99,235,0.35);
-            transition: all 0.25s ease; text-decoration: none;
-        }
-
-        .btn-pricing-secondary:hover { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(37,99,235,0.50); }
-
-        .pricing-info-box {
-            background: var(--price-info-bg);
-            border: 1px solid var(--price-info-border);
-            border-radius: 1rem;
-            padding: 1.25rem 1.5rem;
-        }
-
-        .pricing-feature-row {
-            display: flex; align-items: flex-start; gap: 0.875rem;
-            padding: 0.875rem 0;
-            border-bottom: 1px solid var(--price-row-border);
-            font-size: 1rem;
-        }
-
-        .pricing-feature-row:last-child { border-bottom: none; }
-
-        .pricing-card-text { color: var(--text-secondary); font-size: 1rem; line-height: 1.68; }
-        [data-theme="light"] .pricing-card-text { color: #475569; }
-        [data-theme="dark"] .pricing-card-text { color: rgba(148,163,184,0.84); }
-
-        /* ============================================================
-           UPDATE SERVICE
-        ============================================================ */
-        .update-section { background: var(--update-bg); position: relative; overflow: hidden; }
-
-        [data-theme="dark"] .update-section::before {
-            content: '';
-            position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse 60% 45% at 82% 28%, rgba(37,99,235,0.12) 0%, transparent 60%),
-                radial-gradient(ellipse 42% 35% at 18% 72%, rgba(96,165,250,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .service-icon { width: 1.375rem; height: 1.375rem; color: var(--service-icon-color); flex-shrink: 0; }
-        [data-theme="dark"] .service-icon { filter: drop-shadow(0 0 4px rgba(96,165,250,0.40)); }
-
-        .quote-mark {
-            font-family: Georgia, serif; font-size: 5rem; line-height: 0.7;
-            color: var(--quote-mark-color);
-            position: absolute; top: 1.5rem; left: 1.75rem;
-            pointer-events: none; user-select: none;
-        }
-
-        /* ============================================================
-           STEPS SECTION
-        ============================================================ */
-        .steps-section { background: var(--steps-section); padding: 5rem 0; }
-        [data-theme="light"] .steps-section { background: #f4f6f8; }
-
-        .step-number {
-            font-family: 'Michroma', sans-serif;
-            font-size: 2.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        [data-theme="light"] .step-number { background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); -webkit-background-clip: text; background-clip: text; }
-
-        .step-icon-bubble {
-            width: 2.75rem; height: 2.75rem; border-radius: 0.875rem;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 16px rgba(37,99,235,0.35);
-            margin-bottom: 1.25rem; flex-shrink: 0;
-        }
-
-        .step-card {
-            background: var(--step-bg);
-            border-radius: 1.25rem; padding: 2rem;
-            border: 1px solid var(--step-border);
-            box-shadow: var(--shadow-card);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-            height: 100%;
-        }
-
-        .step-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
-        .step-card h3 { font-weight: 700; font-size: 1.15rem; color: var(--step-text); margin-bottom: 0.75rem; }
-        .step-card p { font-size: 1rem; color: var(--step-body); line-height: 1.75; }
-
-        /* ============================================================
-           CTA
-        ============================================================ */
-        .cta-section {
-            position: relative; overflow: hidden;
-            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 42%, #2563eb 72%, #1e40af 100%);
-            padding: 5rem 0;
-        }
-
-        [data-theme="light"] .cta-section {
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #1d4ed8 100%);
-        }
-
-        .cta-section::before {
-            content: ''; position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse 55% 90% at 0% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
-                radial-gradient(ellipse 65% 65% at 100% 50%, rgba(30,58,138,0.35) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .cta-glass-overlay {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 2rem; padding: 3rem;
-            position: relative; z-index: 1;
-        }
-
-        .btn-cta {
-            display: inline-flex; align-items: center; gap: 0.625rem;
-            padding: 1.05rem 2.25rem; border-radius: 9999px;
-            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em;
-            background: #fff; color: #1e3a8a;
-            box-shadow: 0 4px 22px rgba(0,0,0,0.22);
-            transition: all 0.25s ease; white-space: nowrap; text-decoration: none;
-        }
-
-        .btn-cta:hover { background: #eff6ff; transform: translateY(-2px); box-shadow: 0 12px 34px rgba(0,0,0,0.28); }
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
-        .footer-section { background: var(--footer-bg); border-top: 1px solid var(--footer-border); padding: 3rem 0; }
-        .footer-text { font-size: 0.875rem; color: var(--footer-text); line-height: 1.80; }
-        .footer-link { color: #60a5fa; transition: color 0.25s; }
-        .footer-link:hover { color: #93c5fd; }
-        .footer-divider { border-color: var(--footer-border); margin: 2rem 0; }
-        .footer-copy { font-size: 0.8125rem; color: var(--footer-copy); }
-
-        /* Responsive grid gap fix (lg:gap-* not in compiled CSS) */
-        @media (min-width: 1024px) {
-            .section-grid-gap { column-gap: 5rem; }
-            .section-grid-gap > *:not(:first-child) { margin-top: 0 !important; }
-        }
-
-        /* Smooth theme transition on everything */
-        *, nav, section, footer, div, p, h1, h2, h3, h4, span, a {
-            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
-        }
-        /* But don't transition transforms */
-        a, button { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
-    </style>
+    <link href="src/site.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Announcement Topbar -->
+    <div class="topbar" id="announcement-bar">
+        <div class="topbar-inner">
+            <span class="topbar-badge">Neu ab August 2026</span>
+            <span class="topbar-text-full">Ihre Support-Anfragen erreichen uns jetzt direkt über unser neues Support-Formular:</span>
+            <span class="topbar-text-short">Support-Anfragen jetzt direkt online:</span>
+            <a href="/support" class="topbar-link">
+                www.zkfonline.de/support
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+        <button type="button" class="topbar-close" id="announcement-close" title="Hinweis ausblenden" aria-label="Hinweis ausblenden">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <script>
+        // Runs inline (not on DOMContentLoaded) so a dismissed bar never flashes.
+        (function () {
+            var KEY = 'zkf-topbar-support-2026-08';
+            var bar = document.getElementById('announcement-bar');
+            try {
+                if (localStorage.getItem(KEY) === 'dismissed') { bar.hidden = true; }
+            } catch (e) { /* localStorage blocked — keep the bar visible */ }
+            document.getElementById('announcement-close').addEventListener('click', function () {
+                bar.hidden = true;
+                try { localStorage.setItem(KEY, 'dismissed'); } catch (e) {}
+            });
+        })();
+    </script>
 
     <!-- Navigation Bar -->
     <nav class="nav-glass sticky top-0 z-50" id="main-nav">
@@ -791,7 +69,8 @@
                     <a href="#vorteile" class="nav-link">Vorteile</a>
                     <a href="#preis" class="nav-link">Preise</a>
                     <a href="#kontakt" class="nav-link">Kontakt</a>
-                    <a href="https://www.innomega.se/" class="btn-nav-cta ml-2">Impressum</a>
+                    <a href="https://www.innomega.se/" class="nav-link">Impressum</a>
+                    <a href="/support/" class="btn-nav-cta ml-2">Support</a>
                     <button class="theme-toggle ml-8" id="theme-toggle" title="Hell/Dunkel wechseln" aria-label="Theme wechseln">
                         <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
@@ -826,6 +105,7 @@
                     <a href="#vorteile">Vorteile</a>
                     <a href="#preis">Preise</a>
                     <a href="#kontakt">Kontakt</a>
+                    <a href="/support/">Support</a>
                     <a href="https://www.innomega.se/impressum/">Impressum</a>
                 </div>
             </div>
@@ -856,7 +136,7 @@
 
                     <!-- Benefits Glass Panel -->
                     <div id="vorteile" class="glass-hero-panel p-6 sm:p-8">
-                        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.10em;text-transform:uppercase;color:#2563eb;margin-bottom:1.25rem;">Ihre Vorteile auf einen Blick</h2>
+                        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--accent-text);margin-bottom:1.25rem;">Ihre Vorteile auf einen Blick</h2>
                         <ul class="space-y-4">
                             <li class="flex items-start gap-3">
                                 <svg class="benefit-check" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -878,12 +158,12 @@
                             </li>
                         </ul>
                         <div class="hero-hinweis">
-                            <strong style="color:#2563eb;">Hinweis:</strong> Ihre E-Mails sind komplett separat von der Internetseite. Wenn Sie derzeit mit Ihrer E-Mail Lösung zufrieden sind, bleiben Sie dabei! Wenn nicht, können wir Ihnen bei der Nutzung von Hosted Exchange behilflich sein.
+                            <strong style="color:var(--accent-text);">Hinweis:</strong> Ihre E-Mails sind komplett separat von der Internetseite. Wenn Sie derzeit mit Ihrer E-Mail Lösung zufrieden sind, bleiben Sie dabei! Wenn nicht, können wir Ihnen bei der Nutzung von Hosted Exchange behilflich sein.
                         </div>
                     </div>
 
                     <div class="mt-8">
-                        <a href="#kontakt" class="btn-hero">
+                        <a href="/auftrag/" class="btn-hero">
                             Jetzt Online-Präsenz starten
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -903,27 +183,37 @@
     </div>
 
     <!-- References (hidden) -->
-    <section id="referenzen" class="py-12 hidden">
+    <!-- Hidden 2026-07-30: Lingk moved to a static site elsewhere, the remaining
+         reference sites need a refresh before we show them off again.
+         Remove "hidden" to bring the section back. -->
+    <section id="referenzen" class="py-20 hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-center section-title mb-10">Referenzen unserer Kunden</h2>
+            <h2 class="text-3xl font-extrabold text-center section-title mb-3">Bereits online mit ZKFonline</h2>
+            <p class="text-center mb-10" style="color:var(--text-secondary);max-width:42rem;margin-left:auto;margin-right:auto;">Betriebe aus dem ZKF-Netzwerk, die ihren Auftritt bereits über uns umgesetzt haben &ndash; schauen Sie sich das Ergebnis in Ruhe an.</p>
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="glass-dark p-5">
-                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <div class="ref-logo">
+                        <img src="images/references/lingk.png" alt="Internetseite von Auto Lingk" loading="lazy">
+                    </div>
                     <h3 class="font-semibold" style="color:var(--text-primary);">Auto Lingk</h3>
                     <p class="text-sm mt-1" style="color:var(--text-tertiary);">Recklinghausen</p>
-                    <a href="https://www.auto-lingk.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
+                    <a href="https://www.auto-lingk.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:var(--accent-text);">Website ansehen →</a>
                 </div>
                 <div class="glass-dark p-5">
-                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <div class="ref-logo">
+                        <img src="images/references/ostermann.png" alt="Internetseite von KW Ostermann" loading="lazy">
+                    </div>
                     <h3 class="font-semibold" style="color:var(--text-primary);">KW Ostermann</h3>
                     <p class="text-sm mt-1" style="color:var(--text-tertiary);">Mühlhausen</p>
-                    <a href="https://www.kw-ostermann.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
+                    <a href="https://www.kw-ostermann.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:var(--accent-text);">Website ansehen →</a>
                 </div>
                 <div class="glass-dark p-5">
-                    <div class="h-40 rounded-xl mb-4" style="background:rgba(37,99,235,0.08);"></div>
+                    <div class="ref-logo">
+                        <img src="images/references/heinz.png" alt="Internetseite von Karosseriebau Heinz" loading="lazy">
+                    </div>
                     <h3 class="font-semibold" style="color:var(--text-primary);">Karosseriebau Heinz</h3>
                     <p class="text-sm mt-1" style="color:var(--text-tertiary);">Großheide</p>
-                    <a href="https://www.karosseriebau-heinz.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:#2563eb;">Website ansehen →</a>
+                    <a href="https://www.karosseriebau-heinz.de/" target="_blank" class="mt-3 inline-flex items-center text-sm gap-1" style="color:var(--accent-text);">Website ansehen →</a>
                 </div>
             </div>
         </div>
@@ -961,19 +251,19 @@
                             <h4 style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:1.25rem;">Enthaltene Leistungen:</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                     Erstellung der Website
                                 </li>
                                 <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                     Hosting &amp; Sicherheitsupdates
                                 </li>
                                 <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                     Monatlicher Inhalts-Update-Service
                                 </li>
                                 <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:#2563eb;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                     Kostenlose Beratung
                                 </li>
                             </ul>
@@ -988,7 +278,7 @@
 
                         <div class="pricing-info-box" style="margin-bottom:2rem;">
                             <div class="flex gap-3">
-                                <svg style="height:1.25rem;width:1.25rem;color:#2563eb;flex-shrink:0;margin-top:0.15rem;" viewBox="0 0 20 20" fill="currentColor">
+                                <svg style="height:1.25rem;width:1.25rem;color:var(--accent-text);flex-shrink:0;margin-top:0.15rem;" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
                                 </svg>
                                 <p style="color:var(--price-info-text);font-size:1rem;line-height:1.68;">
@@ -1086,27 +376,17 @@
                 <p class="section-label">So funktioniert&rsquo;s</p>
                 <h2 class="section-title text-3xl sm:text-4xl">Wie geht&rsquo;s weiter?</h2>
             </div>
-            <div class="lg:grid lg:grid-cols-3 lg:gap-8 space-y-6 lg:space-y-0">
+            <div class="steps-grid">
 
                 <div class="step-card">
                     <div class="step-number">01</div>
-                    <div class="step-icon-bubble">
-                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                        </svg>
-                    </div>
                     <h3>Klingt gut, wie geht&rsquo;s weiter?</h3>
                     <p>Zunächst benötigen Sie eigene Fotos von Ihrem Betrieb &mdash; eine Aussenaufnahme oder Werkstatthalle, gerne ein Mitarbeiter-Gruppenfoto. &ldquo;Richtige&rdquo; Fotos sind immer etwas besser als KI-generierte.</p>
-                    <p class="mt-3">Vielleicht haben Sie Erwartungen an zusätzliche Unterseiten. Fragen, die wir einfach im Vorfeld klären. Sie erreichen uns unter <a href="mailto:info@innomega.se" style="color:#2563eb;font-weight:600;">info@innomega.se</a></p>
+                    <p class="mt-3">Vielleicht haben Sie Erwartungen an zusätzliche Unterseiten. Fragen, die wir einfach im Vorfeld klären. Sie erreichen uns unter <a href="mailto:info@innomega.se" style="color:#0369a1;font-weight:600;">info@innomega.se</a></p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">02</div>
-                    <div class="step-icon-bubble">
-                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
                     <h3>Wir übernehmen den Rest!</h3>
                     <p>Danach schicken Sie uns die Rahmendaten zu Ihrem Betrieb sowie Ihre ausgewählten Fotos &mdash; wir übernehmen den Rest!</p>
                     <p class="mt-3">E-Mail-Postfächer sind <strong>nicht</strong> Bestandteil dieses Angebotes. Für professionelle E-Mails empfehlen wir Microsoft 365 / Hosted Exchange.</p>
@@ -1114,11 +394,6 @@
 
                 <div class="step-card">
                     <div class="step-number">03</div>
-                    <div class="step-icon-bubble">
-                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
                     <h3>Wie lange dauert das?</h3>
                     <p>Innerhalb von drei bis vier Wochen nach Eingang Ihrer Fotos und ggfs. Textänderungen erhalten Sie Ihre neue Internetseite zur Voransicht.</p>
                     <p class="mt-3"><strong>Wichtig:</strong> Damit wir wie geplant liefern können, sind wir auch auf Ihre &ldquo;Mitarbeit&rdquo; angewiesen &mdash; aktuelle Fotos und Textänderungen.</p>
@@ -1130,15 +405,15 @@
 
     <!-- CTA Section -->
     <section id="kontakt" class="cta-section">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="cta-glass-overlay text-center lg:text-left lg:flex lg:items-center lg:justify-between">
                 <div>
                     <h2 style="font-weight:800;font-size:clamp(1.65rem,4vw,2.4rem);line-height:1.2;color:#fff;">Bereit für Ihren digitalen Erfolg?</h2>
-                    <p style="font-size:1.0625rem;color:rgba(191,219,254,0.90);margin-top:0.5rem;">Starten Sie jetzt Ihre professionelle Online-Präsenz.</p>
+                    <p style="font-size:1.0625rem;color:rgba(186,230,253,0.90);margin-top:0.5rem;">Alle Angaben bequem online hinterlegen &ndash; ohne Passwort, in Ihrem eigenen Tempo.</p>
                 </div>
-                <div style="margin-top:2rem;flex-shrink:0;" class="lg:mt-0 lg:ml-10">
-                    <a href="mailto:jonas.eriksson@innomega.se?subject=Angebot_ZKFonline_2026" class="btn-cta">
-                        Kostenfreies Angebot anfordern
+                <div style="margin-top:2rem;flex-shrink:0;min-width:22rem;" class="lg:mt-0 lg:ml-10">
+                    <a href="/auftrag/" class="btn-cta">
+                        Auftrag starten
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -1151,16 +426,9 @@
     <!-- Footer -->
     <footer class="footer-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <p class="footer-text">
-                        Umfangreichere Sonderentwicklungen wie bspw. Online-Konfiguratoren für Sonderfahrzeuge, Service-Datenbanken oder Online-Shops erfordern umfangreichere Entwicklungen als in diesem Angebot beinhaltet. Für komplexere Lösungen wenden Sie sich bitte an <a href="https://www.innomega.se" class="footer-link" target="_blank">www.innomega.se</a>.
-                    </p>
-                </div>
-                <div>
-                    <img src="images/IMAB-ZKFonline-Infoseite-AS_88010071blue-1440.jpg" class="max-h-full mx-auto md:mx-0 md:ml-auto opacity-80" alt="ZKF Online Logo">
-                </div>
-            </div>
+            <p class="footer-text" style="max-width:60rem;">
+                Umfangreichere Sonderentwicklungen wie bspw. Online-Konfiguratoren für Sonderfahrzeuge, Service-Datenbanken oder Online-Shops erfordern umfangreichere Entwicklungen als in diesem Angebot beinhaltet. Für komplexere Lösungen wenden Sie sich bitte an <a href="https://www.innomega.se" class="footer-link" target="_blank">www.innomega.se</a>.
+            </p>
             <hr class="footer-divider">
             <p class="footer-copy">
                 &copy; 2026 ZKFonline. Ein Projekt von <span class="michroma px-2">INNOMEGA</span> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
@@ -1168,56 +436,6 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const html = document.documentElement;
-            const mainNav = document.getElementById('main-nav');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            // --- Theme Toggle ---
-            const savedTheme = localStorage.getItem('zkf-theme') || 'dark';
-            html.setAttribute('data-theme', savedTheme);
-
-            function setTheme(theme) {
-                html.setAttribute('data-theme', theme);
-                localStorage.setItem('zkf-theme', theme);
-            }
-
-            document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const current = html.getAttribute('data-theme');
-                    setTheme(current === 'dark' ? 'light' : 'dark');
-                });
-            });
-
-            // --- Nav scroll ---
-            if (mainNav) {
-                window.addEventListener('scroll', () => {
-                    mainNav.classList.toggle('scrolled', window.scrollY > 20);
-                }, { passive: true });
-            }
-
-            // --- Mobile menu ---
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // --- Smooth scroll ---
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (!target) return;
-                    e.preventDefault();
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    target.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    </script>
+    <script src="src/site.js"></script>
 </body>
 </html>
