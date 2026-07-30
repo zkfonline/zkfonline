@@ -11,7 +11,7 @@ import { tokenPruefen, json, istEmail, postmarkSenden } from '../lib/auth.mjs';
 const NOVA_URL = process.env.NOVA_ENQUIRY_URL || 'https://nova.innomega.se/app/enquiry-inbound.bxm';
 const NOVA_TOKEN = process.env.NOVA_ENQUIRY_TOKEN;
 const FROM = process.env.SUPPORT_FROM_EMAIL || 'support@zkfonline.de';
-const NOTIFY = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.de';
+const NOTIFY = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.se';
 
 const MAX_BILDER = 10;
 const MAX_BILD_BYTES = 2_500_000;   // per image, after browser downscaling

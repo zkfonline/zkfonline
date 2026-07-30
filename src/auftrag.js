@@ -61,7 +61,7 @@
             $('gate-form').hidden = true;
             $('gate-sent').hidden = false;
         } catch (err) {
-            zeigeGateFehler('Der Zugangslink konnte nicht angefordert werden. Bitte versuchen Sie es später erneut oder schreiben Sie an support@innomega.de.');
+            zeigeGateFehler('Der Zugangslink konnte nicht angefordert werden. Bitte versuchen Sie es später erneut oder schreiben Sie an support@innomega.se.');
         } finally {
             $('gate-btn').disabled = false;
             $('gate-label').textContent = 'Zugangslink anfordern';
@@ -285,7 +285,7 @@
             }
             zeigeFehler(daten.fehler === 'bilder insgesamt zu groß'
                 ? 'Die Bilder sind zusammen zu groß. Bitte entfernen Sie einige und versuchen Sie es erneut.'
-                : 'Der Auftrag konnte nicht übermittelt werden. Bitte versuchen Sie es erneut oder schreiben Sie an support@innomega.de.');
+                : 'Der Auftrag konnte nicht übermittelt werden. Bitte versuchen Sie es erneut oder schreiben Sie an support@innomega.se.');
         } catch (err) {
             zeigeFehler('Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.');
         } finally {

@@ -13,7 +13,7 @@ const NOVA_URL = process.env.NOVA_SUPPORT_URL || 'https://nova.innomega.se/app/s
 const NOVA_TOKEN = process.env.NOVA_SUPPORT_TOKEN;
 const POSTMARK_TOKEN = process.env.POSTMARK_SERVER_TOKEN;
 const FROM_EMAIL = process.env.SUPPORT_FROM_EMAIL || 'support@zkfonline.de';
-const NOTIFY_EMAIL = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.de';
+const NOTIFY_EMAIL = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.se';
 
 const KATEGORIEN = {
   inhalt: 'Inhaltsänderung',
@@ -165,7 +165,7 @@ async function mailsSenden(f, betreff, textBody) {
     `Guten Tag ${f.name},`,
     ``,
     `vielen Dank für Ihre Anfrage. Wir haben sie erhalten und melden uns`,
-    `in der Regel innerhalb eines Werktages bei Ihnen.`,
+    `in der Regel innerhalb von 24 Stunden bei Ihnen, spätestens innerhalb einer Woche.`,
     ``,
     `Ihr Betreff: ${f.subject}`,
     ``,

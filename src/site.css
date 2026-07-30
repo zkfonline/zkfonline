@@ -1320,3 +1320,30 @@ summary:focus-visible,
 ============================================================ */
 .nav-row { flex-wrap: wrap; height: auto; min-height: 4rem; row-gap: 0.5rem; }
 .nav-links { flex-wrap: wrap; row-gap: 0.5rem; }
+
+/* ============================================================
+   LEGAL PAGES
+============================================================ */
+/* Long German compounds ("Datenschutz-Aufsichtsbehoerde") overflow a 320px
+   viewport otherwise, which fails WCAG 1.4.10 reflow. */
+.rechtstext {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--quote-text);
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.rechtstext h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    color: var(--quote-text);
+    margin-top: 2.25rem;
+    margin-bottom: 0.95rem;
+}
+
+.rechtstext h2:first-child { margin-top: 0; }
+.rechtstext p { margin-bottom: 1.1rem; }
+.rechtstext a { color: #0369a1; font-weight: 600; }
+[data-theme="dark"] .rechtstext a { color: var(--accent-text); }

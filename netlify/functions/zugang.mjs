@@ -10,7 +10,7 @@
 import { tokenErstellen, tokenPruefen, json, istEmail, postmarkSenden, GUELTIG_TAGE } from '../lib/auth.mjs';
 
 const FROM = process.env.SUPPORT_FROM_EMAIL || 'support@zkfonline.de';
-const NOTIFY = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.de';
+const NOTIFY = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.se';
 
 // Canonical, non-negotiable base for magic links. Only an env var may override it —
 // never anything derived from the incoming request.

@@ -35,6 +35,10 @@
             line-height: 1.12;
             color: var(--hero-headline);
             letter-spacing: -0.02em;
+            /* "Datenschutzerklaerung" as one word does not fit a 320px viewport
+               at this size and broke WCAG 1.4.10 reflow. */
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .support-lead {

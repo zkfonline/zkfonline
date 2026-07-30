@@ -35,8 +35,9 @@
                 <div class="hidden md:flex items-center space-x-1 ml-10 nav-links">
                     <a href="/#vorteile" class="nav-link">Vorteile</a>
                     <a href="/#preis" class="nav-link">Preise</a>
+                    <a href="/#faq" class="nav-link">Fragen</a>
                     <a href="/#kontakt" class="nav-link">Kontakt</a>
-                    <a href="https://www.innomega.se/de/impressum/" class="nav-link">Impressum</a>
+                    <a href="/impressum/" class="nav-link">Impressum</a>
                     <a href="/support/" class="btn-nav-cta ml-2">Support</a>
                     <button class="theme-toggle ml-8" id="theme-toggle" title="Hell/Dunkel wechseln" aria-label="Theme wechseln">
                         <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -69,9 +70,10 @@
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="/#vorteile">Vorteile</a>
                     <a href="/#preis">Preise</a>
+                    <a href="/#faq">Fragen</a>
                     <a href="/#kontakt">Kontakt</a>
                     <a href="/support/">Support</a>
-                    <a href="https://www.innomega.se/de/impressum/">Impressum</a>
+                    <a href="/impressum/">Impressum</a>
                 </div>
             </div>
         </div>
@@ -167,7 +169,9 @@
                     <label class="check-row">
                         <input type="checkbox" id="datenschutz" name="datenschutz" required>
                         <span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
-                        Anfrage gespeichert und verarbeitet werden. <span class="req">*</span></span>
+                        Anfrage gespeichert und verarbeitet werden. Hinweise dazu in der
+                        <a href="/datenschutz/" style="color:var(--accent-text);font-weight:600;">Datenschutzerklärung</a>.
+                        <span class="req">*</span></span>
                     </label>
                 </div>
 
@@ -190,7 +194,7 @@
                 <h2 class="success-title">Vielen Dank &ndash; Ihre Anfrage ist eingegangen.</h2>
                 <p class="success-text">
                     Wir haben Ihnen eine Empfangsbestätigung per E-Mail geschickt und melden uns in
-                    der Regel innerhalb eines Werktages bei Ihnen. Bei dringenden Störungen erreichen
+                    der Regel innerhalb von 24 Stunden bei Ihnen. Bei dringenden Störungen erreichen
                     Sie uns zusätzlich telefonisch.
                 </p>
             </div>
@@ -204,7 +208,7 @@
                 <div>
                     <div class="alt-title">Lieber per E-Mail?</div>
                     <div class="alt-body">
-                        Schreiben Sie an <a href="mailto:support@innomega.de">support@innomega.de</a> &ndash;
+                        Schreiben Sie an <a href="mailto:support@innomega.se">support@innomega.se</a> &ndash;
                         auch diese Nachrichten landen in derselben Support-Übersicht.
                     </div>
                 </div>
@@ -216,7 +220,7 @@
                 <div>
                     <div class="alt-title">Bearbeitungszeit</div>
                     <div class="alt-body">
-                        Anfragen werden werktags bearbeitet, in der Regel innerhalb eines Werktages.
+                        Anfragen werden werktags bearbeitet &ndash; meist innerhalb von 24 Stunden, spätestens innerhalb einer Woche.
                         Als dringend markierte Störungen priorisieren wir.
                     </div>
                 </div>
@@ -227,7 +231,11 @@
     <!-- Footer -->
     <footer class="footer-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <hr class="footer-divider" style="margin-top:0;">
+            <p class="footer-text" style="max-width:60rem;">
+                <a href="/impressum/" class="footer-link">Impressum</a> &middot;
+                <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            </p>
+            <hr class="footer-divider">
             <p class="footer-copy">
                 &copy; 2026 ZKFonline. Ein Projekt von <a href="https://www.innomega.se/de/" target="_blank" rel="noopener" class="michroma px-2 footer-innomega">INNOMEGA</a> in Kooperation mit dem ZKF e.V. &mdash; Alle Rechte vorbehalten.
             </p>
@@ -317,12 +325,12 @@
 
                     zeigeFehler(
                         'Ihre Anfrage konnte nicht übermittelt werden. Bitte versuchen Sie es in ' +
-                        'einigen Minuten erneut oder schreiben Sie uns an support@innomega.de.'
+                        'einigen Minuten erneut oder schreiben Sie uns an support@innomega.se.'
                     );
                 } catch (err) {
                     zeigeFehler(
                         'Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung ' +
-                        'oder schreiben Sie uns an support@innomega.de.'
+                        'oder schreiben Sie uns an support@innomega.se.'
                     );
                 } finally {
                     btn.disabled = false;
