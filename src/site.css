@@ -899,3 +899,276 @@
     .cta-glass-overlay { text-align: left; }
     .cta-glass-overlay > :last-child { margin-left: 2.5rem; }
 }
+
+/* ============================================================
+   TARIFE (three tiers) + honest comparison
+   Plain CSS: the committed Tailwind build cannot be relied on.
+============================================================ */
+.tarif-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+    .tarif-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+}
+
+.tarif {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-surface-card);
+    border: 1px solid var(--quote-panel-border);
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-card);
+}
+
+.tarif-empfohlen {
+    border: 2px solid #0369a1;
+    box-shadow: 0 12px 40px rgba(3,105,161,0.18);
+}
+
+.tarif-badge {
+    position: absolute;
+    top: -0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0369a1;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+.tarif-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-on-card);
+}
+
+.tarif-fuer {
+    margin-top: 0.4rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-on-card);
+    opacity: 0.75;
+    min-height: 3rem;
+}
+
+.tarif-preis { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.15rem; }
+
+.tarif-einrichtung {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-on-card);
+}
+
+.tarif-monat {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0369a1;
+    line-height: 1.15;
+}
+
+.tarif-monat-klein { font-size: 0.95rem; font-weight: 600; opacity: 0.8; }
+
+.tarif-laufzeit {
+    margin-top: 0.6rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-on-card);
+    opacity: 0.7;
+}
+
+.btn-tarif {
+    display: block;
+    margin-top: 1.5rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 9999px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border: 1px solid #0369a1;
+    color: #0369a1;
+    background: none;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.btn-tarif:hover { background: rgba(3,105,161,0.08); }
+
+.btn-tarif-primaer {
+    background: linear-gradient(135deg, #0369a1 0%, #025b8a 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgba(3,105,161,0.30);
+}
+
+.btn-tarif-primaer:hover { background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%); }
+
+.tarif-liste {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--price-row-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-grow: 1;
+}
+
+.tarif-liste li {
+    position: relative;
+    padding-left: 1.6rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-on-card);
+}
+
+.tarif-liste li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    width: 0.95rem;
+    height: 0.5rem;
+    border-left: 2px solid #059669;
+    border-bottom: 2px solid #059669;
+    transform: rotate(-45deg);
+}
+
+.tarif-vorkasse {
+    margin-top: 1.5rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.7rem;
+    background: var(--price-info-bg);
+    border: 1px solid var(--price-info-border);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-on-card);
+}
+
+/* --- comparison --- */
+.vergleich { margin-top: 4rem; }
+
+.vergleich-titel {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 1.75rem;
+}
+
+.vergleich-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+@media (min-width: 768px) { .vergleich-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.vergleich-spalte {
+    padding: 1.4rem 1.5rem;
+    border-radius: 1rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    text-align: center;
+}
+
+.vergleich-wir { border-color: #0369a1; background: var(--price-info-bg); }
+
+.vergleich-kopf {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.vergleich-preis {
+    margin-top: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.vergleich-wir .vergleich-preis { color: var(--accent-text); }
+
+.vergleich-text {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* ============================================================
+   ANSPRECHPARTNER
+============================================================ */
+.kontakt-karte {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background: var(--step-bg);
+    border: 1px solid var(--step-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 640px) { .kontakt-karte { flex-direction: row; gap: 1.75rem; padding: 2.5rem; } }
+
+.kontakt-initialen {
+    flex-shrink: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #0369a1 0%, #025b8a 100%);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The card sits on --step-bg, which is #ffffff in BOTH themes, so this needs the
+   solid azure — the dark-theme accent is a light sky tone and fails on white. */
+.kontakt-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #0369a1;
+}
+
+.kontakt-name {
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--step-text);
+    margin-top: 0.2rem;
+}
+
+.kontakt-text {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--step-body);
+}
+
+.kontakt-mail { margin-top: 1rem; font-size: 1.0625rem; font-weight: 700; }
+.kontakt-mail a { color: #0369a1; text-decoration: none; }
+.kontakt-mail a:hover { text-decoration: underline; }

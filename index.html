@@ -11,13 +11,8 @@
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Michroma" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="src/fonts.css" rel="stylesheet">
     <link href="src/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link href="src/site.css" rel="stylesheet">
 </head>
@@ -219,98 +214,100 @@
     <!-- Pricing Section -->
     <section id="preis" class="bg-mesh-pricing py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 items-start section-grid-gap">
 
-                <!-- Left: Pricing Card -->
-                <div class="lg:col-span-5">
-                    <p class="section-label">Transparente Preise</p>
-                    <h2 class="section-title text-3xl sm:text-4xl mb-4">Ein Festpreis. Keine Überraschungen.</h2>
-                    <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-secondary);margin-bottom:2.5rem;">
-                        Erstellung, Hosting, Sicherheitsupdates und der Änderungsservice sind im Preis enthalten.
+            <div class="text-center" style="max-width:46rem;margin:0 auto 1rem;">
+                <p class="section-label">Preise</p>
+                <h2 class="section-title text-3xl sm:text-4xl mb-4">89 &euro; im Monat. Etwa eine halbe Stunde Werkstattzeit.</h2>
+                <p style="font-size:1.0625rem;line-height:1.75;color:var(--text-secondary);">
+                    Dafür ist Ihre Internetseite online, aktuell und sicher &ndash; und wir bauen Ihre
+                    Änderungen ein. Ohne Stundensatz, ohne Nachberechnung.
+                </p>
+            </div>
+
+            <div class="tarif-grid">
+
+                <!-- Klein -->
+                <div class="tarif">
+                    <h3 class="tarif-name">Kompakt</h3>
+                    <p class="tarif-fuer">Für den kleinen Betrieb, der endlich gefunden werden will.</p>
+                    <div class="tarif-preis">
+                        <span class="tarif-einrichtung">490 &euro; einmalig</span>
+                        <span class="tarif-monat">+ 49 &euro; <span class="tarif-monat-klein">/ Monat</span></span>
+                    </div>
+                    <p class="tarif-laufzeit">zzgl. MwSt. &middot; 24 Monate Mindestlaufzeit, danach monatlich kündbar</p>
+                    <a href="/auftrag/" class="btn-tarif">Internetseite anfragen</a>
+                    <ul class="tarif-liste">
+                        <li>Eine Seite mit fünf Abschnitten</li>
+                        <li>Hosting &amp; Sicherheitsupdates</li>
+                        <li>Änderungsservice: Sie mailen, wir bauen ein</li>
+                        <li>Beratung zu Ihren Fotos</li>
+                    </ul>
+                </div>
+
+                <!-- Standard -->
+                <div class="tarif tarif-empfohlen">
+                    <span class="tarif-badge">Am häufigsten gewählt</span>
+                    <h3 class="tarif-name">Standard</h3>
+                    <p class="tarif-fuer">Der komplette Auftritt für Kfz- und Karosseriebetriebe.</p>
+                    <div class="tarif-preis">
+                        <span class="tarif-einrichtung">990 &euro; einmalig</span>
+                        <span class="tarif-monat">+ 89 &euro; <span class="tarif-monat-klein">/ Monat</span></span>
+                    </div>
+                    <p class="tarif-laufzeit">zzgl. MwSt. &middot; 24 Monate Mindestlaufzeit, danach monatlich kündbar</p>
+                    <a href="/auftrag/" class="btn-tarif btn-tarif-primaer">Internetseite anfragen</a>
+                    <ul class="tarif-liste">
+                        <li>Mehrere Unterseiten &ndash; Leistungen, Betrieb, Kontakt</li>
+                        <li>Hosting &amp; Sicherheitsupdates</li>
+                        <li>Voller Änderungsservice</li>
+                        <li>Beratung zu Ihren Fotos</li>
+                        <li>Kostenlose Beratung vorab</li>
+                    </ul>
+                    <p class="tarif-vorkasse">
+                        Lieber auf einmal? <strong>2.550 &euro; für 24 Monate im Voraus</strong> &ndash;
+                        Sie sparen 576 &euro;.
                     </p>
-
-                    <div class="glass-pricing-card">
-                        <div style="padding:2rem 2rem 1.75rem;">
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.15rem;color:var(--text-primary);">Alles-inklusive Paket</h3>
-                                <span class="badge-popular">Beliebt</span>
-                            </div>
-                            <p style="color:var(--text-secondary);font-size:1rem;line-height:1.6;margin-bottom:2rem;">
-                                Alles, was Ihr Betrieb im Internet braucht &ndash; in einem Paket.
-                            </p>
-                            <div class="flex items-baseline gap-3 mb-1">
-                                <span class="pricing-amount">2.850,- &euro;</span>
-                            </div>
-                            <p style="color:var(--text-secondary);font-size:0.9375rem;line-height:1.6;margin-bottom:0.5rem;">zzgl. MwSt. für 24 Monate &ndash; das sind <strong style="color:var(--text-primary);">118,75 &euro; im Monat</strong>.</p>
-                            <p style="color:var(--text-tertiary);font-size:0.875rem;line-height:1.6;margin-bottom:2rem;">Erstellung, Hosting, Sicherheitsupdates und Änderungen sind darin enthalten. Keine Einrichtungsgebühr, keine Nachberechnung für Änderungen.</p>
-                            <a href="/auftrag/" class="btn-pricing">Internetseite anfragen</a>
-                        </div>
-                        <div class="glass-pricing-features" style="padding:1.75rem 2rem 2rem;">
-                            <h4 style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:1.25rem;">Enthaltene Leistungen:</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    Erstellung Ihrer Internetseite
-                                </li>
-                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    Hosting &amp; Sicherheitsupdates
-                                </li>
-                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    Änderungsservice: Sie mailen, wir bauen ein
-                                </li>
-                                <li class="flex items-center gap-3" style="font-size:1rem;color:var(--text-secondary);">
-                                    <svg style="width:1.25rem;height:1.25rem;color:var(--accent-text);flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    Kostenlose Beratung
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Right: Details -->
-                <div class="mt-20 lg:col-span-7">
-                    <div class="glass-dark" style="padding:2.5rem;">
-                        <h3 style="font-weight:700;font-size:1.2rem;color:var(--text-primary);margin-bottom:1.75rem;">Preisübersicht:</h3>
+                <!-- Premium -->
+                <div class="tarif">
+                    <h3 class="tarif-name">Premium</h3>
+                    <p class="tarif-fuer">Für Betriebe, die zusätzlich Mitarbeiter suchen.</p>
+                    <div class="tarif-preis">
+                        <span class="tarif-einrichtung">1.490 &euro; einmalig</span>
+                        <span class="tarif-monat">+ 149 &euro; <span class="tarif-monat-klein">/ Monat</span></span>
+                    </div>
+                    <p class="tarif-laufzeit">zzgl. MwSt. &middot; 24 Monate Mindestlaufzeit, danach monatlich kündbar</p>
+                    <a href="/auftrag/" class="btn-tarif">Internetseite anfragen</a>
+                    <ul class="tarif-liste">
+                        <li>Alles aus Standard</li>
+                        <li>Mehr Unterseiten</li>
+                        <li>Stellenanzeigen für Ihre Mitarbeitersuche</li>
+                        <li>Google-Unternehmensprofil einrichten und monatlich pflegen</li>
+                        <li>Persönliche Anleitung für Ihre Fotos</li>
+                    </ul>
+                </div>
+            </div>
 
-                        <div class="pricing-info-box" style="margin-bottom:2rem;">
-                            <div class="flex gap-3">
-                                <svg style="height:1.25rem;width:1.25rem;color:var(--accent-text);flex-shrink:0;margin-top:0.15rem;" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                </svg>
-                                <p style="color:var(--price-info-text);font-size:1rem;line-height:1.68;">
-                                    <strong style="color:var(--text-primary);">2.850,- &euro; zzgl. MwSt. für 24 Monate</strong><br>
-                                    Das entspricht 118,75 &euro; im Monat &ndash; für die komplette Internetseite samt Betrieb und Änderungen.
-                                </p>
-                            </div>
-                        </div>
-
-                        <p style="font-size:1.0625rem;line-height:1.78;color:var(--text-secondary);margin-bottom:2rem;">
-                            Ihre Seite ist so gebaut, dass es nichts gibt, was gehackt werden oder ausfallen kann. Sie öffnet sich sofort &ndash; auch auf dem Handy in der Werkstatt bei schlechtem Empfang. Und Sie müssen nie ein Update einspielen.
-                        </p>
-
-                        <div>
-                            <div class="pricing-feature-row">
-                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span style="font-size:1rem;color:var(--text-secondary);">Öffnet sich sofort &ndash; am Handy wie am Computer</span>
-                            </div>
-                            <div class="pricing-feature-row">
-                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span style="font-size:1rem;color:var(--text-secondary);">Nichts, was gehackt werden kann</span>
-                            </div>
-                            <div class="pricing-feature-row">
-                                <svg style="height:1.375rem;width:1.375rem;color:#059669;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span style="font-size:1rem;color:var(--text-secondary);">Kein Update, um das Sie sich kümmern müssen</span>
-                            </div>
-                        </div>
-
-                        <div style="margin-top:2.5rem;">
-                            <a href="/auftrag/" class="btn-pricing-secondary">Internetseite anfragen</a>
-                        </div>
+            <!-- Honest comparison -->
+            <div class="vergleich">
+                <h3 class="vergleich-titel">Was die Alternativen kosten</h3>
+                <div class="vergleich-grid">
+                    <div class="vergleich-spalte">
+                        <p class="vergleich-kopf">Baukasten</p>
+                        <p class="vergleich-preis">15&ndash;30 &euro; / Monat</p>
+                        <p class="vergleich-text">Günstig &ndash; aber Sie bauen und pflegen die Seite selbst. Dauerhaft.</p>
+                    </div>
+                    <div class="vergleich-spalte vergleich-wir">
+                        <p class="vergleich-kopf">ZKFonline</p>
+                        <p class="vergleich-preis">ab 49 &euro; / Monat</p>
+                        <p class="vergleich-text">Wir bauen die Seite und pflegen sie. Sie schreiben eine E-Mail, ein Mensch erledigt es.</p>
+                    </div>
+                    <div class="vergleich-spalte">
+                        <p class="vergleich-kopf">Agentur</p>
+                        <p class="vergleich-preis">ab 3.000 &euro;</p>
+                        <p class="vergleich-text">Danach 90&ndash;120 &euro; Stundensatz für jede spätere Änderung.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -400,8 +397,30 @@
         </div>
     </section>
 
+    <!-- Ansprechpartner -->
+    <section id="kontakt" class="py-16" style="background:var(--steps-section);">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="kontakt-karte">
+                <div class="kontakt-initialen" aria-hidden="true">JE</div>
+                <div>
+                    <p class="kontakt-label">Ihr Ansprechpartner</p>
+                    <p class="kontakt-name">Jonas Eriksson</p>
+                    <p class="kontakt-text">
+                        Sie sprechen von Anfang bis Ende mit derselben Person &ndash; kein Callcenter,
+                        keine Warteschleife. Schreiben Sie mir, was Sie vorhaben, und ich melde mich
+                        persönlich bei Ihnen. Die Telefonnummer für den direkten Draht erhalten Sie
+                        nach dem ersten Kontakt.
+                    </p>
+                    <p class="kontakt-mail">
+                        <a href="mailto:support@innomega.se?subject=Anfrage%20ZKFonline">support@innomega.se</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section id="kontakt" class="cta-section">
+    <section class="cta-section">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="cta-glass-overlay text-center lg:text-left lg:flex lg:items-center lg:justify-between">
                 <div>
