@@ -290,7 +290,7 @@
             zeigeFehler('Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.');
         } finally {
             $('submit-btn').disabled = false;
-            $('submit-label').textContent = 'Auftrag verbindlich übermitteln';
+            $('submit-label').textContent = 'Angaben übermitteln';
         }
     });
 
