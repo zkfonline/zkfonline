@@ -167,7 +167,7 @@
 
         .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; }
 
-        @media (min-width: 640px) { .btn-submit { width: auto; min-width: 18rem; } }
+        @media (min-width: 640px) { .btn-submit { width: auto; min-width: min(18rem, 100%); } }
 
         .hp-field {
             position: absolute;
