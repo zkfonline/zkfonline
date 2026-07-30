@@ -12,6 +12,31 @@ import { tokenErstellen, tokenPruefen, json, istEmail, postmarkSenden, GUELTIG_T
 const FROM = process.env.SUPPORT_FROM_EMAIL || 'support@zkfonline.de';
 const NOTIFY = process.env.SUPPORT_NOTIFY_EMAIL || 'support@innomega.de';
 
+// Canonical, non-negotiable base for magic links. Only an env var may override it —
+// never anything derived from the incoming request.
+const BASIS = (process.env.SITE_URL || 'https://www.zkfonline.de').replace(/\/+$/, '');
+
+/**
+ * Best-effort throttle so this endpoint cannot be used to mail-bomb an address or
+ * burn Postmark reputation. Serverless gives no shared state, so this only limits a
+ * single warm instance — it raises the cost of abuse, it does not eliminate it.
+ * A durable limit needs shared storage.
+ */
+const letzte = new Map();
+const FENSTER_MS = 60_000;
+const MAX_PRO_FENSTER = 3;
+
+function zuVieleAnfragen(key) {
+  const jetzt = Date.now();
+  const treffer = (letzte.get(key) || []).filter((t) => jetzt - t < FENSTER_MS);
+  treffer.push(jetzt);
+  letzte.set(key, treffer);
+  if (letzte.size > 500) {
+    for (const [k, v] of letzte) if (!v.some((t) => jetzt - t < FENSTER_MS)) letzte.delete(k);
+  }
+  return treffer.length > MAX_PRO_FENSTER;
+}
+
 export default async (req) => {
   if (req.method !== 'POST') return json(405, { ok: false, fehler: 'method not allowed' });
 
@@ -37,6 +62,14 @@ export default async (req) => {
   const email = String(body.email ?? '').trim().toLowerCase().slice(0, 254);
   if (!istEmail(email)) return json(400, { ok: false, fehler: 'ungültige e-mail-adresse' });
 
+  // Throttle per recipient and per caller. Still answers 200 so the response stays
+  // indistinguishable from a successful request.
+  const ip = req.headers.get('x-nf-client-connection-ip') || req.headers.get('x-forwarded-for') || 'unknown';
+  if (zuVieleAnfragen(`m:${email}`) || zuVieleAnfragen(`i:${ip}`)) {
+    console.warn('rate limited magic-link request', email);
+    return json(200, { ok: true });
+  }
+
   let token;
   try {
     token = tokenErstellen(email);
@@ -45,8 +78,9 @@ export default async (req) => {
     return json(500, { ok: false, fehler: 'server nicht konfiguriert' });
   }
 
-  const basis = process.env.SITE_URL || url.origin;
-  const link = `${basis}/auftrag/?zugang=${encodeURIComponent(token)}`;
+  // NEVER derive this from the request. `url.origin` follows the Host header, so a
+  // spoofed Host would mail the victim a valid token pointing at an attacker's domain.
+  const link = `${BASIS}/auftrag/?zugang=${encodeURIComponent(token)}`;
 
   const text = [
     `Guten Tag,`,

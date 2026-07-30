@@ -77,6 +77,8 @@ export default async (req) => {
   const betreff = `${f.dringend ? '[DRINGEND] ' : ''}[${f.kategorie}] ${f.subject}`;
   const textBody = [
     `Support-Anfrage über www.zkfonline.de/support`,
+    `ACHTUNG: Absenderadresse stammt aus einem offenen Web-Formular und ist NICHT`,
+    `verifiziert. Kundenzuordnung bitte vor Auskünften gegenprüfen.`,
     ``,
     `Firma:        ${f.company}`,
     `Name:         ${f.name}`,

@@ -160,8 +160,11 @@ export default async (req) => {
       TextBody: textBody,
       Attachments: bilder.map(({ Name, Content, ContentType }) => ({ Name, Content, ContentType })),
     });
+    // Deliberately the token-verified address, NOT d.email: the form field is
+    // attacker-controlled, so sending there would let any token holder use our
+    // Postmark server to mail arbitrary third parties.
     await postmarkSenden({
-      From: FROM, To: d.email, ReplyTo: NOTIFY,
+      From: FROM, To: sitzung.email, ReplyTo: NOTIFY,
       Subject: 'Ihr Website-Auftrag bei ZKFonline',
       TextBody: [
         `Guten Tag ${d.inhaber},`,
